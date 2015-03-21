@@ -28,4 +28,4 @@ Online code collaboration tool
 	
 	`$ git push origin <branch-name>`
 5. Create pull request in Github, mention any individuals if you want them to specifically take a look at the code. `@jedediahsmith`
-6. Self merge is "okay" as long as you feel confident that the code doesn't break anything else. Default to having someone else merge your PR.
+6. Self merging is "okay" as long as you feel confident that the code doesn't break anything else. Default to having someone else merge your PR.
