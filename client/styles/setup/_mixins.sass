@@ -32,9 +32,7 @@
       background-image: image-url(retina_filename($image))
 
 
-//------------------------------------------------------------------------------
-// Clearfix
-//------------------------------------------------------------------------------
+// CLEARFIX
 =clearfix()
   &:before, &:after
     content: " "
@@ -42,13 +40,18 @@
   &:after
     clear: both
 
+
+// CONTAINER
+=container()
+  +clearfix
+  display: block
+  width: 100%
+  position: relative
+
+// GRADIENT
 =gradient($top, $bot)
   +background-image(linear-gradient($top 0%, $bot 100%))
 
-
-//------------------------------------------------------------------------------
-// Jason's Mixins - https://gist.github.com/1d496bfe8a526c7b2de2
-//------------------------------------------------------------------------------
 =image-background($path)
   background-image: image-url($path)
   background-size: image-width($path) image-height($path)

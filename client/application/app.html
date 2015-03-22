@@ -1,45 +1,104 @@
-
 <template name="CodeView">
   <div class="app-container">
-    <header>
+
+    <header class="app-header">
       <nav>
         <ul class="navbar-left">
-          <li>App Name</li>
+          <li class="navbar-item">App Name</li>
         </ul>
 
         <ul class="navbar-right">
-          <li>Log In</li>
+          <li  class="navbar-item navbar-login">Log In</li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="pads-container" role="main">
+      <header class="tabs-container">
+        <ul class="tabs">
+          <li class="tab is-active">
+
+            <a class="tab-link" href="/pad-id">
+              <div class="form-select">
+                <div class="tab-label">
+                  <p class="pad-syntax">Ruby</p>
+                </div>
+              </div>
+            </a>
+
+          </li>
+
+          <li class="tab">
+
+            <a class="tab-link" href="/pad-id">
+              <div class="form-select">
+                <div class="tab-label">
+                  <p class="pad-syntax">ERB</p>
+                </div>
+              </div>
+            </a>
+
+          </li>
 
         </ul>
 
-      </nav>
-
-    </header>
-
-    <section class="pad-container">
-      <header class="tab-container">
-
-
       </header>
-      <div class="pad">
+      <div class="pad-editable-container">
+        <div class="pad-editable-body">
 
-        <code>
+          <code>
 
-          Here is some code, that we want to jazz up
+            Here is some code, that we want to jazz up
 
-        </code>
+          </code>
+
+        </div>
 
       </div>
 
     </section>
 
-    <aside class="sidebar">
+    <aside class="sidebar is-viewer is-presenter">
+      <div class="container">
 
-      Here's our sidebar, we'll have a list of users
-      And everything else.
+        <div class="users">
+          Users
+        </div>
 
-      {{> chatBox }}
 
+        <div class="controls">
+            State Controls
+        </div>
+
+        <div class="ask-question audio-chat">
+            <div class="audio-ask-quesiton">
+              Ask A Question
+            </div>
+
+            <div class="audio-ask-controls">
+              Chat Lobby
+            </div>
+
+        </div>
+
+        <div class="text-chat">
+          <div class="chat-lobby">
+
+
+          </div>
+
+          <div class="chat-message">
+            <form>
+              <input type="text" class="Chat something">
+            </form>
+
+          </div>
+
+        </div>
+
+        {{> chatBox }}
+
+      </div>
     </aside>
 
   </div>

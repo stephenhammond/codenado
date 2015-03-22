@@ -1,0 +1,79 @@
+// APP STYLES
+body
+  background: #f1f1f1
+
+.app-container
+  +container
+  z-index: 1
+
+  ul
+    display: inline-block
+    list-style: none
+    padding: 0
+    margin: 0
+    cursor: normal
+
+  // APP HEADER & NAVBAR
+
+  header.app-header
+    position: relative
+    z-index: 2
+
+    nav
+      +container
+      background: cornflowerblue
+
+      ul
+        &:first-of-type
+          margin-left: 0
+
+        &:last-of-type
+          margin-right: 0
+
+    .navbar-item
+      padding: $padding-default
+      display: block
+      color: white
+
+    .navbar-left
+      float: left
+
+    .navbar-right
+      float: right
+
+$app-column-height-default: 660px
+
+// TABBED MENU
+.tabs-container
+  +container
+  background: whitesmoke
+
+  p
+    margin: 0
+
+  .tab
+    display: inline-block
+
+    .tab-link
+      color: #fff
+      display: block
+      padding: .5rem 1.35rem
+      text-align: left
+      background: darken(#444, .08)
+
+section.pads-container
+  +container
+  background: rgba(blue, .2)
+  width: 73%
+  float: left
+  height: $app-column-height-default
+
+  .pad-editable-container
+    +container
+
+aside.sidebar
+  +container
+  background: rgba(orange, .105)
+  width: 27%
+  float: left
+  height: $app-column-height-default
