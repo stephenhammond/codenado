@@ -1,0 +1,208 @@
+//------------------------------------------------------------------------------
+// Inline for standard / URL for retina - based on http://www.joelambert.co.uk
+//------------------------------------------------------------------------------
+=inline-background-image-retina($image, $size_and_pos: true)
+  background-repeat: no-repeat
+  background-image: inline-image($image)
+  background-size: image-width($image) image-height($image)
+  @if $size_and_pos == true
+    background-position: center center
+    width: image-width($image)
+    height: image-height($image)
+
+  @if file_exists(retina_filename($image))
+    +retina-mq()
+      +background-size(image-width($image) auto)
+      background-image: image-url(retina_filename($image))
+
+=background-image-retina($image, $size_and_pos: true, $background_size: true)
+  background-repeat: no-repeat
+  background-image: image-url($image)
+  @if $background_size == true
+    background-size: image-width($image) image-height($image)
+  @if $size_and_pos == true
+    background-position: center center
+    width: image-width($image)
+    height: image-height($image)
+
+  @if file_exists(retina_filename($image))
+    +retina-mq()
+      @if $background_size == true
+        +background-size(image-width($image) auto)
+      background-image: image-url(retina_filename($image))
+
+
+//------------------------------------------------------------------------------
+// Clearfix
+//------------------------------------------------------------------------------
+=clearfix()
+  &:before, &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
+=gradient($top, $bot)
+  +background-image(linear-gradient($top 0%, $bot 100%))
+
+
+//------------------------------------------------------------------------------
+// Jason's Mixins - https://gist.github.com/1d496bfe8a526c7b2de2
+//------------------------------------------------------------------------------
+=image-background($path)
+  background-image: image-url($path)
+  background-size: image-width($path) image-height($path)
+
+=image-size($path)
+  width: image-width($path)
+  height: image-height($path)
+
+=image-element($path)
+  display: block
+  +image-size($path)
+  +image-background($path)
+
+=inline-image-element($path)
+  display: block
+  +image-size($path)
+  background-image: inline-image($path)
+  background-repeat: no-repeat
+  background-size: image-width($path) image-height($path)
+
+=placeholder
+  &.placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+=retina-mq
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5), screen and (min-resolution: 1.5dppx), screen and (min-resolution: 192dpi)
+    @content
+
+
+//------------------------------------------------------------------------------
+// Media Queiry Support
+//------------------------------------------------------------------------------
+=above($breakpoint)
+  @media screen and (min-width: $breakpoint)
+    @content
+
+=below($breakpoint)
+  @media screen and (max-width: $breakpoint)
+    @content
+
+=above-height($breakpoint)
+  @media screen and (min-height: $breakpoint)
+    @content
+
+=below-height($breakpoint)
+  @media screen and (max-height: $breakpoint)
+    @content
+
+
+//------------------------------------------------------------------------------
+// Mixins for :before & :after, with retina support
+//------------------------------------------------------------------------------
+=before-image($path, $top: 0, $right: auto, $left: auto, $z-index: "")
+  &:before
+    content: " "
+    display: block
+    position: absolute
+    top: $top
+    right: $right
+    left: $left
+    width: image-width($path)
+    height: 100%
+    background: no-repeat right center
+    +inline-background-image-retina($path)
+    z-index: unquote($z-index)
+    @content
+
+=after-image($path, $top: 0, $right: auto, $left: auto, $z-index: "")
+  &:after
+    content: " "
+    display: block
+    position: absolute
+    top: $top
+    right: $right
+    left: $left
+    width: image-width($path)
+    height: 100%
+    background: no-repeat right center
+    +inline-background-image-retina($path)
+    z-index: unquote($z-index)
+    @content
+
+=btn-download($btn-color)
+  background-color: $btn-color
+
+  &:hover
+    background: darken($btn-color, 10)
+
+
+//------------------------------------------------------------------------------
+//  When using background-image, use this to caluclate the padding-top trick,
+//  which will allow the element to be responsive
+//------------------------------------------------------------------------------
+=responsive-image-padding($image)
+  padding-top: percentage(image-height($image) / image-width($image))
+
+
+//------------------------------------------------------------------------------
+//  CSS &:after arrow mixin, add custom position after mixin
+//------------------------------------------------------------------------------
+=arrow($width: 20px, $height: 20px, $direction: up, $color: red, $position_center: true)
+  width: 0
+  height: 0
+  content: ""
+  position: absolute
+
+  @if $direction == right
+    border-top: $height/2 solid transparent
+    border-bottom: $height/2 solid transparent
+    border-left: $width solid $color
+
+  @if $direction == left
+    border-top: $height/2 solid transparent
+    border-bottom: $height/2 solid transparent
+    border-right: $width solid $color
+
+  @if $direction == up
+    border-left: $width/2 solid transparent
+    border-right: $width/2 solid transparent
+    border-bottom: $height solid $color
+
+  @if $direction == down
+    border-left: $width/2 solid transparent
+    border-right: $width/2 solid transparent
+    border-top: $height solid $color
+
+  @if $position_center == true
+    left: 50%
+    margin-left: (-$width / 2) //absolute position hack in the unknown
+
+  //optional content like z-index or other position
+  @content
+
+
+//------------------------------------------------------------------------------
+//  Trick for vertically centering with a unknown height
+//  - based on http://css-tricks.com/centering-in-the-unknown/
+//------------------------------------------------------------------------------
+=vertical-align
+  &:before
+    content: ''
+    display: inline-block
+    vertical-align: middle
+    height: 100%
+    width: .1px
+
+
+//------------------------------------------------------------------------------
+//  Set Headers with SASS mixin, have nicer code
+//------------------------------------------------------------------------------
+=headers
+  #{headers()}
+    @content

@@ -1,0 +1,67 @@
+form
+  width: 400px
+  margin: 1em auto
+  display: block
+  background: white
+  padding: 30px
+
+  p
+    text-align: center
+    font-size: 1.5em
+    margin-bottom: 1em
+
+  input
+    width: 100%
+    border: 1px solid #ccc
+    border-radius: 3px
+    margin-bottom: 1em
+    font-size: 18px
+    line-height: 1.2em
+    padding: 8px
+
+    +placeholder
+      color: #818181
+
+    &[type="submit"]
+      background: $blue
+      color: #fff
+      padding: 10px 0
+      font-weight: $font-weight-light
+
+    &:last-child
+      margin-bottom: 0
+
+    &.button
+      margin-left: 0
+      margin-right: 0
+      margin-top: .75em
+      margin-bottom: .75em
+
+  .faux-select
+    border: 1px solid #ccc
+    width: 100%
+    border-radius: 3px
+    overflow: hidden
+    position: relative
+
+    &:before
+      content: ""
+      border-color: #a1a1a1 transparent transparent transparent
+      border-style: solid
+      border-width: 6px 7.5px 0 7.5px
+      height: 0
+      width: 0
+      position: absolute
+      right: 10px
+      top: 45%
+
+    select
+      border: none
+      box-shadow: none
+      color: #818181
+      font-size: 16px
+      line-height: 40px
+      padding: 0 8px
+      width: 100%
+      background: transparent
+      -webkit-appearance: none
