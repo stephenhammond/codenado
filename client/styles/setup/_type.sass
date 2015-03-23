@@ -1,0 +1,14 @@
+$fonts: (300, sw23244sad), (400, asdsgsa30482_sds), (600, dsa244asds_23)
+
+// @each $weight, $font in $fonts
+
+@each $item in $fonts
+  $weight: nth($item, 1)
+  $font: nth($item, 2)
+
+  @font-face
+    font-family: 'Proxima Nova'
+    src: font-url('#{$font}.eot') format("embedded-opentype")
+    src: font-url('#{$font}.woff') format('woff'), font-url('#{$font}.ttf') format('truetype'), font-url('#{$font}.svg') format('svg')
+    font-weight: #{$weight}
+    font-style: normal

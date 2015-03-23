@@ -1,0 +1,36 @@
+// APP STYLES
+body
+  background: #f1f1f1
+
+.app-container
+  +container
+  z-index: 1
+
+  ul
+    display: inline-block
+    list-style: none
+    padding: 0
+    margin: 0
+    cursor: normal
+
+$app-column-height-default: 660px
+
+aside.sidebar
+  +container
+  background: rgba(orange, .105)
+  width: 27%
+  float: left
+  height: $app-column-height-default
+
+
+// IMPORT OTHER PARTIALS
+
+@import app/app-header
+@import app/app-tabs
+@import app/app-pads
+
+// @import app-buttons
+// @import app-users
+// @import app-controls
+// @import app-audio-chat
+// @import app-text-chat
