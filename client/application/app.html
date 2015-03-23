@@ -13,50 +13,7 @@
       </nav>
     </header>
 
-    <section class="pads-container" role="main">
-      <header class="tabs-container">
-        <ul class="tabs">
-          <li class="tab is-active">
-
-            <a class="tab-link" href="/pad-id">
-              <div class="form-select">
-                <div class="tab-label">
-                  <p class="pad-syntax">Ruby</p>
-                </div>
-              </div>
-            </a>
-
-          </li>
-
-          <li class="tab">
-
-            <a class="tab-link" href="/pad-id">
-              <div class="form-select">
-                <div class="tab-label">
-                  <p class="pad-syntax">ERB</p>
-                </div>
-              </div>
-            </a>
-
-          </li>
-
-        </ul>
-
-      </header>
-      <div class="pad-editable-container">
-        <div class="pad-editable-body">
-
-          <code>
-
-            Here is some code, that we want to jazz up
-
-          </code>
-
-        </div>
-
-      </div>
-
-    </section>
+      {{> tabs}}
 
     <aside class="sidebar is-viewer is-presenter">
 
