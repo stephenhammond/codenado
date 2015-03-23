@@ -1,0 +1,28 @@
+// APP HEADER & NAVBAR
+.app-container
+
+  header.app-header
+    position: relative
+    z-index: 2
+
+    nav
+      +container
+      background: cornflowerblue
+
+      ul
+        &:first-of-type
+          margin-left: 0
+
+        &:last-of-type
+          margin-right: 0
+
+    .navbar-item
+      padding: $padding-default
+      display: block
+      color: white
+
+    .navbar-left
+      float: left
+
+    .navbar-right
+      float: right
