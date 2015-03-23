@@ -36,8 +36,11 @@ Template.chatMessage.helpers({
 });
 
 Template.chatBox.events({
-  "click #send": function() {
-    var message = $('#chat-message').val();
+  "submit .chat-input-form": function(e) {
+    e.preventDefault();
+    var $form = $('.chat-input-form')
+    var message = $form.find('input').val();
+    // var message = $('#chat-message').val();
     chatCollection.insert({
       userId: 'me',
       message: message

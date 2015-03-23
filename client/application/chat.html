@@ -1,20 +1,27 @@
-<template name="chat">
-  <h2>Chat with Meteor Streams</h2>
-  {{> chatBox}}
+<template name="Chat">
+  <div class="app-chat text-chat">
+    {{> chatBox }}
+  </div>
 </template>
 
-<template name='chatBox'>
-  <div id='messages'>
+<template name="chatBox">
+  <div class="chat-history">
     {{#each messages}}
       {{>chatMessage}}
     {{/each}}
   </div>
-  <textarea id='chat-message'></textarea><br>
-  <button class='btn btn-primary' id='send'>Send Chat</button>
+
+  <div class="chat-input-container">
+    <form class="chat-input-form">
+      <input type="text" id="chat-message" placeholder="Chat Something">
+      <button type="submit" id="send">Send Chat</button>
+    </form>
+  </div>
+
 </template>
 
-<template name='chatMessage'>
-  <div>
+<template name="chatMessage">
+  <p>
     <b>{{user}}:</b> {{message}}
-  </div>
+  </p>
 </template>
