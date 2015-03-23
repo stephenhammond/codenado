@@ -1,7 +1,14 @@
-// @font-face
-//   font-family: 'house_m.d.regular'
-//   src: url('/fonts/house_md.eot')
-//   src: url('/fonts/house_md.eot?#iefix') format("embedded-opentype"), url('/fonts/house_md.woff2') format("woff2"), url('/fonts/house_md.woff') format("woff"), url('/fonts/house_md.ttf') format("truetype"), url('/fonts/house_md.svg#house_m.d.regular') format("svg")
-//   font-weight: normal
-//   font-style: normal
+$fonts: (300, sw23244sad), (400, asdsgsa30482_sds), (600, dsa244asds_23)
 
+// @each $weight, $font in $fonts
+
+@each $item in $fonts
+  $weight: nth($item, 1)
+  $font: nth($item, 2)
+
+  @font-face
+    font-family: 'Proxima Nova'
+    src: font-url('#{$font}.eot') format("embedded-opentype")
+    src: font-url('#{$font}.woff') format('woff'), font-url('#{$font}.ttf') format('truetype'), font-url('#{$font}.svg') format('svg')
+    font-weight: #{$weight}
+    font-style: normal
