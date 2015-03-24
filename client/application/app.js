@@ -8,11 +8,10 @@ Template.app.created = function() {
     var headerHeight = $('.app-header').height();
     viewportHeight = viewportHeight - headerHeight;
 
-    return $(".pads-container, .sidebar").css("min-height", viewportHeight + "px");
+    return $(".app-primary, .app-sidebar").css("min-height", viewportHeight + "px");
   };
 
   $(window).resize(function() {
-    console.log($(window).height());
     adjustHeights();
   });
 

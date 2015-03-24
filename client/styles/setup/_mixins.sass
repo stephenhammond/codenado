@@ -10,11 +10,6 @@
     width: image-width($image)
     height: image-height($image)
 
-  @if file_exists(retina_filename($image))
-    +retina-mq()
-      +background-size(image-width($image) auto)
-      background-image: image-url(retina_filename($image))
-
 =background-image-retina($image, $size_and_pos: true, $background_size: true)
   background-repeat: no-repeat
   background-image: image-url($image)
@@ -24,13 +19,6 @@
     background-position: center center
     width: image-width($image)
     height: image-height($image)
-
-  @if file_exists(retina_filename($image))
-    +retina-mq()
-      @if $background_size == true
-        +background-size(image-width($image) auto)
-      background-image: image-url(retina_filename($image))
-
 
 // CLEARFIX
 =clearfix()

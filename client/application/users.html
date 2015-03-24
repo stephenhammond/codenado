@@ -1,6 +1,6 @@
 <template name="users">
 
-  <div class="users">
+  <!-- <div class="users">
     <h3>Users</h3>
     <ul>
       <li>
@@ -8,8 +8,39 @@
           <img class="img-avatar" src="{{user.profile.avatar_url}}" >
         {{/each}}
       </li>
+    </ul> -->
+
+  <div class="users-container">
+   <p class="app-label">Presenters</p>
+    <ul class="users-list">
+      <li class="presenters">
+        <div class="presenter">
+          <span class="presenter-name">ME</span>
+        </div>
+        <div class="presenter">
+          <span class="presenter-name">WE</span>
+        </div>
+        <div class="presenter">
+          <span class="presenter-name">US</span>
+        </div>
+        <div class="presenter">
+          <span class="presenter-name">HE</span>
+        </div>
+        <div class="presenter">
+          <span class="presenter-name">ME</span>
+        </div>
+        <div class="presenter">
+          <span class="presenter-name">ME</span>
+        </div>
+      </li>
+
+      <li class="viewers">
+        <a class="viewers-dropdown">
+          <span class="viewers-number">12</span>
+        </a>
+      </li>
+
     </ul>
   </div>
-
 
 </template>
