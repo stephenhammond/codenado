@@ -1,7 +1,7 @@
 <template name="CodeView">
   <div class="app-container">
 
-    <header class="app-header">
+    <header class="app-header" role="menubar">
       <nav>
         <ul class="navbar-left">
           <li class="navbar-item">App Name</li>
@@ -13,9 +13,11 @@
       </nav>
     </header>
 
-      {{> tabs}}
+    <main class="app-primary" role="nagivation">
+      {{> Tabs}}
+    </main>
 
-    <aside class="sidebar is-viewer is-presenter">
+    <aside class="app-sidebar is-viewer is-presenter">
 
         {{> Users }}
 
