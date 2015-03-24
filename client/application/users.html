@@ -1,7 +1,15 @@
 <template name="users">
 
   <div class="users">
-    Users
+    <h3>Users</h3>
+    <ul>
+      {{#each users}}
+        <li>{{name}}</li>
+<!--         {{users.services.github.email}} -->
+
+      {{/each}}
+         {{user.profile.avatar_url}}
+    </ul>
   </div>
 
 
