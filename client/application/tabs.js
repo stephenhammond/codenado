@@ -1,4 +1,4 @@
-Template.Tabs.events({
+Template.tabs.events({
 
   'click li a.tab-link': function (e) {
     var tabID = $(e.target).data('tab-id');
