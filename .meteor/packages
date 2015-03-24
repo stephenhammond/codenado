@@ -19,4 +19,5 @@ msavin:mongol
 preserve-inputs
 accounts-ui
 accounts-github
+service-configuration
 

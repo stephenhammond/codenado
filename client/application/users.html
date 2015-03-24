@@ -3,12 +3,13 @@
   <div class="users">
     <h3>Users</h3>
     <ul>
+      {{currentUser.services.github.email}}
       {{#each users}}
         <li>{{name}}</li>
 <!--         {{users.services.github.email}} -->
 
       {{/each}}
-         {{user.profile.avatar_url}}
+<!--          <img src="{{user.profile.avatar_url}}" /> -->
     </ul>
   </div>
 

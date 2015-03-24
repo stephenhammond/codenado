@@ -9,6 +9,7 @@
 
         <ul class="navbar-right">
           <li  class="navbar-item navbar-login">{{> loginButtons align="right"}}</li>
+
         </ul>
       </nav>
     </header>
@@ -18,7 +19,7 @@
     </main>
 
     <aside class="app-sidebar is-viewer is-presenter">
-
+        {{user.services.github.email}}
         {{> users }}
 
         {{> controls }}
