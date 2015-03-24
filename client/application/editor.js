@@ -1,6 +1,6 @@
 Template.editor.onRendered( function() {
-  var pathname = window.location.pathname.substr(1);
-  var docid = pathname + '-tab1'
+  var pathname = window.location.pathname.split( '/' ).pop();
+  var docid = pathname + '-tab1';
   Session.set('currentTab', docid);
 });
 
