@@ -1,41 +1,35 @@
 <template name="tabs">
-    <section class="pads-container" role="main">
-      <header class="tabs-container">
-        <ul class="tabs">
-          <li class="tab is-active">
-            <a class="tab-link" href="#" data-tab-id="1">
-                Tab 1
-            </a>
-          </li>
-          <li class="tab">
-            <a class="tab-link" href="#" data-tab-id="2">
-              Tab 2
-            </a>
-          </li>
-          <li class="tab">
-            <a class="tab-link" href="#" data-tab-id="3">
-              Tab 3
-            </a>
-          </li>
-          <li class="tab">
-            <a class="tab-link" href="#" data-tab-id="4">
-            Tab 4
-            </a>
-          </li>
-          <li class="tab">
-            <a class="tab-link" href="#" data-tab-id="board">
-            Board
-            </a>
-          </li>
-        </ul>
-      </header>
+  <nav class="tabs-container">
+    <ul class="tabs">
+      <li class="tab is-active">
+        <a class="tab-link" href="#" data-tab-id="1">
+            Tab 1
+        </a>
+      </li>
+      <li class="tab">
+        <a class="tab-link" href="#" data-tab-id="2">
+          Tab 2
+        </a>
+      </li>
+      <li class="tab">
+        <a class="tab-link" href="#" data-tab-id="3">
+          Tab 3
+        </a>
+      </li>
+      <li class="tab">
+        <a class="tab-link" href="#" data-tab-id="4">
+          Tab 4
+        </a>
+      </li>
+      <li class="tab">
+        <a class="tab-link" href="#" data-tab-id="board">
+          Draw
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-      <div class="pad-editable-container">
-        <div class="pad-editable-body">
-
-          {{> editor}}
-
-        </div>
-      </div>
-    </section>
+  <div class="editors">
+    {{> editor}}
+  </div>
 </template>
