@@ -1,7 +1,7 @@
 <template name="editor">
 
   {{#if isViewingBoard}}
-    {{> whiteboardplaceholder}}
+    {{> blackboard}}
   {{else}}
     {{> sharejsAce docid=currentTab id="editor"}}
   {{/if}}

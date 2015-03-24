@@ -4,6 +4,7 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+jquery
 meteor-platform
 coffeescript
 lepozepo:streams
@@ -13,3 +14,8 @@ francocatena:compass
 meta:susy
 mizzao:sharejs-ace
 mizzao:sharejs
+insecure
+autopublish
+preserve-inputs
+standard-app-packages
+msavin:mongol

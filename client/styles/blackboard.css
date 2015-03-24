@@ -1,0 +1,18 @@
+
+.canvas-container {
+	position: relative;
+	display: block;
+}
+
+
+input {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/*#draw {
+	background-color: red;
+	width: 500px;
+	height: 500px;
+}*/
