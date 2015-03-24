@@ -1,4 +1,4 @@
-Template.CodeView.created = function() {
+Template.app.created = function() {
   var adjustHeights;
 
   adjustHeights = function() {
