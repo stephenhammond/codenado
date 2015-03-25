@@ -1,7 +1,14 @@
 <template name="users">
 
   <div class="users">
-    Users
+    <h3>Users</h3>
+    <ul>
+      <li>
+        {{#each Meteor.users}}
+          <img class="img-avatar" src="{{user.profile.avatar_url}}" >
+        {{/each}}
+      </li>
+    </ul>
   </div>
 
 

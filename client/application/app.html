@@ -6,10 +6,13 @@
         <ul class="navbar-left">
           <li class="navbar-item">App Name</li>
         </ul>
-
-        <ul class="navbar-right">
-          <li  class="navbar-item navbar-login">Log In</li>
-        </ul>
+          <ul class="navbar-right">
+            <li  class="navbar-item navbar-login">
+            {{#if currentUser}}
+              <img class="img-avatar" src="{{currentUser.profile.avatar_url}}" >
+            {{/if}}
+            {{> loginButtons align="right"}}</li>
+          </ul>
       </nav>
     </header>
 
