@@ -4,16 +4,19 @@ Deps.autorun(function(){
   if (Meteor.user()) {
     Meteor.subscribe('allUsers');
   }
-});
 
-var users = Meteor.users;
+  var user = Meteor.users.find();
 
-console.log(users);
-
-Template.users.helpers({
-  avatar: function () {
-    return Meteor.users.find();
-  }
+  Template.users.helpers({
+    users: function () {
+      var userArray = [];
+      user.forEach( function(user) { userArray.push(
+        { url: user.profile.avatar_url }, 
+        { name: user.profile.name }) });
+    return userArray;
+    }
+  });
+  
 });
 
 
