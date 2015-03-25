@@ -13,3 +13,7 @@ francocatena:compass
 meta:susy
 mizzao:sharejs-ace
 mizzao:sharejs
+insecure
+autopublish
+msavin:mongol
+preserve-inputs
