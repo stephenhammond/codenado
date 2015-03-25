@@ -3,3 +3,6 @@ Meteor.publish("userData", function () {
                            {fields: {'services': 1}});
 });
 
+Meteor.publish("allUserData", function () {
+  return Meteor.users.find({}, {fields: {'avatar_url': 1}});
+});

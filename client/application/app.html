@@ -9,7 +9,7 @@
           <ul class="navbar-right">
             <li  class="navbar-item navbar-login">
             {{#if currentUser}}
-              <img class="img-avatar" src="{{currentUser.profile.avatar_url}}">
+              <img class="img-avatar" src="{{currentUser.profile.avatar_url}}" >
             {{/if}}
             {{> loginButtons align="right"}}</li>
           </ul>
@@ -21,8 +21,6 @@
     </main>
 
     <aside class="app-sidebar is-viewer is-presenter">
-
-        {{currentUser.profile.email}}
 
         {{> users }}
 

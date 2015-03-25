@@ -3,11 +3,11 @@
   <div class="users">
     <h3>Users</h3>
     <ul>
-<!--       {{#each users}}
-        <li>{{email}}</li>
-
-      {{/each}} -->
-         <img src="{{user.profile.avatar_url}}" />
+      <li>
+        {{#each Meteor.users}}
+          <img class="img-avatar" src="{{user.profile.avatar_url}}" >
+        {{/each}}
+      </li>
     </ul>
   </div>
 
