@@ -1,1 +1,68 @@
-//forms
+
+form
+  font-size: 0.80em
+  font-family: $font-family-primary
+
+  label
+    font-family: $font-family-primary
+    color: rgba(#333, .6)
+
+  input
+    border: 1px solid $border-color
+    box-sizing: border-box
+    margin-bottom: 1em
+    padding: 8px
+    width: 100%
+
+    +placeholder
+      color: rgba(#333, .60)
+      letter-spacing: .003em
+      text-transform: uppercase
+
+    &:last-of-type
+      margin-bottom: 0
+
+  .input-note
+    font-size: 0.60em
+    margin: .5em 0 .75em
+    line-height: 1.2em
+    text-align: right
+    display: block
+    color: darken($border-color, 20%)
+
+  .select-list
+    color: #333
+    width: 100%
+    display: block
+    position: relative
+    padding: 8px
+    margin: 0
+    border: 1px solid $border-color
+    overflow: hidden
+    background-color: #fff
+
+    &:after
+      content: ""
+      width: 12px
+      height: 6px
+      background-image: url("/images/icon-caret.png")
+      background-size: contain
+      position: absolute
+      right: 9px
+      top: 42%
+
+    select
+      width: 100%
+      border: none
+      box-shadow: none
+      background-color: transparent
+      background-image: none
+      padding: 5px 8px
+      -webkit-appearance: none
+      letter-spacing: .003em
+
+      &:-ms-expand
+        display: none
+
+      &:focus
+        outline: none
