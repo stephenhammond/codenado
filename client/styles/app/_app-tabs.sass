@@ -25,19 +25,24 @@
       border-right: 1px solid #9d9e9e
       color: #333
 
-    &.tab-draw a
-      position: relative
-      color: #3b51c1
-      padding-left: 30px
-      padding-right: 10px
+    &.tab-draw
 
-      &:after
-        content: ""
-        background-image: url("/images/icon-draw.png")
-        background-size: contain
-        background-repeat: no-repeat
-        position: absolute
-        left: 10px
-        top: 9px
-        width: 15px
-        height: 15px
+      &.is-active a::after
+        background-image: url("/images/icon-draw-active.png")
+
+      a
+        position: relative
+        color: #3b51c1
+        padding-left: 30px
+        padding-right: 10px
+
+        &::after
+          content: ""
+          background-image: url("/images/icon-draw.png")
+          background-size: contain
+          background-repeat: no-repeat
+          position: absolute
+          left: 10px
+          top: 9px
+          width: 15px
+          height: 15px
