@@ -1,12 +1,12 @@
 Template.home.events({
   'click button#random_url': function(){
-    var randomUrl = makeid();
-    Session.set('lobyID', randomUrl);
+    var randomUrl = makeId();
+    Session.set('lobbyId', randomUrl);
     Router.go('/editor/' + randomUrl);
   }
 });
 
-function makeid()
+function makeId()
 {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
