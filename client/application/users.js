@@ -19,7 +19,6 @@ Deps.autorun(function(){
       return userArray;
     }
   });
-
 });
 
 
