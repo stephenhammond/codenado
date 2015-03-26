@@ -2,7 +2,7 @@ Template.home.events({
   'click button#random_url': function(){
     var randomUrl = makeId();
     Session.set('lobbyId', randomUrl);
-    Router.go('/editor/' + randomUrl);
+    Router.go('/app/' + randomUrl);
   }
 });
 
