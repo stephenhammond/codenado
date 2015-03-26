@@ -13,3 +13,18 @@ Template.editor.helpers({
     return Session.get("isViewingBoard");
   }
 });
+
+Template.editor.config = function () {
+  return function(editor) {
+    editor.setTheme('ace/theme/monokai');
+    editor.getSession().setMode('ace/mode/javascript');
+    editor.setShowPrintMargin(false);
+    editor.getSession().setUseWrapMode(true);
+    
+    $('#mode').on('change', function() {
+      console.log($(this).val());
+      var newMode = $(this).val();
+      editor.session.setMode("ace/mode/" + newMode);
+    })
+  }
+};

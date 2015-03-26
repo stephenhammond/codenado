@@ -3,7 +3,16 @@
   {{#if isViewingBoard}}
     {{> blackboard}}
   {{else}}
-    {{> sharejsAce docid=currentTab id="editor"}}
+	<div class="syntax-container"> 
+		Syntax options: 
+			<select id="mode">
+			  <option value="javascript">JavaScript</option>
+			  <option value="ruby">Ruby</option>
+			  <option value="html">HTML</option>
+			  <option value="css">CSS</option>
+			</select>
+	</div>
+    {{> sharejsAce onRender=config docid=currentTab id="editor"}}
   {{/if}}
 
 </template>
