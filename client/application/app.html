@@ -2,33 +2,24 @@
   <div class="app-container">
 
     <header class="app-header" role="menubar">
-      <nav>
-        <ul class="navbar-left">
-          <li class="navbar-item">App Name</li>
-        </ul>
-          <ul class="navbar-right">
-            <li  class="navbar-item navbar-login">
-            {{#if currentUser}}
-              <img class="img-avatar" src="{{currentUser.profile.avatar_url}}" >
-            {{/if}}
-            {{> loginButtons align="right"}}</li>
-          </ul>
-      </nav>
+      {{> appHeader }}
     </header>
 
     <main class="app-primary" role="nagivation">
+
       {{> tabs}}
+
     </main>
 
     <aside class="app-sidebar is-viewer is-presenter">
 
-        {{> users }}
+      {{> users }}
 
-        {{> controls }}
+      {{> controls }}
 
-        {{> talk }}
+      {{> talk }}
 
-        {{> chat }}
+      {{> chat }}
 
     </aside>
 
