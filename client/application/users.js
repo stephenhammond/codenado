@@ -3,14 +3,16 @@
 Deps.autorun(function(){
   if (Meteor.user()) {
     Meteor.subscribe('allUsers');
+    Meteor.subscribe('userStatus');
   }
 
-  var user = Meteor.users.find();
+  var usersOnline = Meteor.users.find({ "status.online": true });
+  console.log(usersOnline);
 
   Template.users.helpers({
     users: function () {
       var userArray = [];
-      user.forEach( function(user) {
+      usersOnline.forEach( function(user) {
         userArray.push({
           url: user.profile.avatar_url,
           name: user.profile.name
