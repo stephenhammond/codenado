@@ -16,7 +16,7 @@ $users-height: 60px
 
     .presenters
       float: left
-      width: 75%
+      width: 70%
       position: relative
       height: $users-height
 
@@ -28,18 +28,34 @@ $users-height: 60px
       +clearfix
       height: 50px
       width: 50px
+      display: block
       border-radius: 100%
       color: #333
       position: absolute
       display: table
       z-index: 10
+      border: 2px solid transparent
 
       +below(780px)
         height: 30px
         width: 30px
         font-size: 10px
 
+      .presenter-avatar
+        display: table-cell
+        border-radius: 100%
+        max-width: 100%
+        position: absolute
+        left: 0
+        top: 0
+        width: 50px
+        height: 50px
+
       .presenter-name
+        font: 0/0 serif
+        text-shadow: none
+        color: transparent
+
         display: table-cell
         text-align: center
         vertical-align: middle
@@ -47,49 +63,62 @@ $users-height: 60px
       &:hover
         z-index: 11 !important
 
-      &:nth-of-type(1)
-        background: grey
+      &:hover::after
+        content: attr(data-name)
+        background: rgba(black, 0.95)
+        color: #FFF
+        bottom: -30px
+        padding: 10px
+        position: absolute
+        text-align: center
+        left: 50%
+        width: 80px
+        margin-left: -40px
+        z-index: 100
+
+      // &:nth-of-type(1)
+      //   background: grey
 
       &:nth-of-type(2)
         left: 30px
         z-index: 9
         background: orange
 
-      &:nth-of-type(3)
-        left: 60px
-        z-index: 8
-        background: cyan
+      // &:nth-of-type(3)
+      //   left: 60px
+      //   z-index: 8
+      //   background: cyan
 
-      &:nth-of-type(4)
-        left: 90px
-        z-index: 7
-        background: aliceblue
+      // &:nth-of-type(4)
+      //   left: 90px
+      //   z-index: 7
+      //   background: aliceblue
 
-      &:nth-of-type(5)
-        left: 120px
-        z-index: 6
-        background: lime
+      // &:nth-of-type(5)
+      //   left: 120px
+      //   z-index: 6
+      //   background: lime
 
-      &:nth-of-type(6)
-        left: 150px
-        z-index: 5
-        background: brown
+      // &:nth-of-type(6)
+      //   left: 150px
+      //   z-index: 5
+      //   background: brown
 
-      +below(780px)
-        &:nth-of-type(2)
-          left: 20px
+      // +below(780px)
+      //   &:nth-of-type(2)
+      //     left: 20px
 
-        &:nth-of-type(3)
-          left: 43px
+      //   &:nth-of-type(3)
+      //     left: 43px
 
-        &:nth-of-type(4)
-          left: 68px
+      //   &:nth-of-type(4)
+      //     left: 68px
 
-        &:nth-of-type(5)
-          left: 92px
+      //   &:nth-of-type(5)
+      //     left: 92px
 
-        &:nth-of-type(6)
-          left: 108px
+      //   &:nth-of-type(6)
+      //     left: 108px
 
       // $fonts: (300, sw23244sad), (400, asdsgsa30482_sds), (600, dsa244asds_23)
       // @each $weight, $font in $fonts

@@ -1,38 +1,17 @@
 <template name="users">
 
-  <!-- <div class="users">
-    <h3>Users</h3>
-    <ul>
-      <li>
-        {{#each users}}
-            <img class="img-avatar" src="{{url}}">
-        {{/each}}
-
-      </li>
-    </ul> -->
-
   <div class="users-container">
    <p class="app-label">Presenters</p>
     <ul class="users-list">
-      <li class="presenters">
-        <div class="presenter">
-          <span class="presenter-name">ME</span>
-        </div>
-        <div class="presenter">
-          <span class="presenter-name">WE</span>
-        </div>
-        <div class="presenter">
-          <span class="presenter-name">US</span>
-        </div>
-        <div class="presenter">
-          <span class="presenter-name">HE</span>
-        </div>
-        <div class="presenter">
-          <span class="presenter-name">ME</span>
-        </div>
-        <div class="presenter">
-          <span class="presenter-name">ME</span>
-        </div>
+      <li class="presenters" data-presenter-count="{{users.length}}">
+
+        {{#each users}}
+          <div class="presenter" data-name="{{name}}">
+            <span class="presenter-name">{{name}}</span>
+            <img class="presenter-avatar" src="{{url}}">
+          </div>
+        {{/each}}
+
       </li>
 
       <li class="viewers">

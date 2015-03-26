@@ -10,13 +10,16 @@ Deps.autorun(function(){
   Template.users.helpers({
     users: function () {
       var userArray = [];
-      user.forEach( function(user) { userArray.push(
-        { url: user.profile.avatar_url }, 
-        { name: user.profile.name }) });
-    return userArray;
+      user.forEach( function(user) {
+        userArray.push({
+          url: user.profile.avatar_url,
+          name: user.profile.name
+        });
+      });
+      return userArray;
     }
   });
-  
+
 });
 
 
