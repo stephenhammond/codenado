@@ -1,6 +1,8 @@
 Template.tabs.events({
 
   'click li a.tab-link': function (e) {
+    $('li a.tab-link').parent().removeClass('is-active');
+    $(e.target).parent().addClass('is-active');
     var tabID = $(e.target).data('tab-id');
     if (tabID === "board") {
       Session.set('isViewingBoard', true);
