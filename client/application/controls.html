@@ -1,8 +1,55 @@
 <template name="controls">
-
   <div class="controls">
-      State Controls
-  </div>
+    <div class="controls-container">
 
+        <!-- PRESENTER CONTROLS -->
+        <div class="is-presenter">
+          <form>
+
+            <div class="microphone-controls">
+
+              <label for="mute-myself">Microphone Muted</label>
+              <div class="toggle-switch">
+                <input type="checkbox" value="None" name="check" id="check">
+                <label for="check"></label>
+              </div>
+            </div>
+
+            <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
+
+          </form>
+        </div>
+
+        <!-- VIEWER CONTROLS -->
+        <div class="is-viewer">
+          <form>
+            <input class="viewer-name" type="text" placeholder="What's Your Name?">
+            <input class="viewer-email" type="text" placeholder="What's Your Email?">
+            <span class="input-note">Export code to email</span>
+          </form>
+        </div>
+
+      <!-- SHARED CONTROLS -->
+      <div class="shared-controls">
+        <form>
+
+          <ul class="dropdown-select-list">
+            <li>
+              <a href="#" class="dropdown-top-item">Export To</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="export-raw">Raw Text File (New Tab)</a></li>
+                <li><a href="#" class="export-email">Email Current Code</a></li>
+                <li><a href="#" class="export-gist">New Gist on Github</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
 
 </template>

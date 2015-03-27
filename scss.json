@@ -4,5 +4,9 @@
   ],
   "useIndex" : true,
   "indexFilePath" : "client/styles/screen.sass",
-  "enableAutoprefixer": true
+  "enableAutoprefixer": true,
+  "autoprefixerOptions": {
+    "browsers": ["last 2 versions", "Explorer >= 9"],
+    "cascade": true
+  }
 }

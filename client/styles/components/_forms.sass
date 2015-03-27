@@ -1,1 +1,104 @@
-//forms
+
+form
+  font-size: 0.80em
+  font-family: $font-family-primary
+
+  label
+    font-family: $font-family-primary
+    color: rgba(#333, .6)
+
+  input
+    border: 1px solid $border-color
+    box-sizing: border-box
+    margin-bottom: 1em
+    padding: 8px
+    width: 100%
+
+    +placeholder
+      color: rgba(#333, .60)
+      letter-spacing: .003em
+      text-transform: uppercase
+
+    &:last-of-type
+      margin-bottom: 0
+
+  .input-note
+    font-size: 0.60em
+    margin: .5em 0 .75em
+    line-height: 1.2em
+    text-align: right
+    display: block
+    color: darken($border-color, 20%)
+
+  .dropdown-select-list
+    display: block
+    border: 1px solid $border-color
+    background: white
+    position: relative
+    color: #333
+    width: 100%
+    font-size: .8em
+
+    a
+      padding: 8px
+      display: block
+      font-size: 14px
+      color: #333
+      letter-spacing: .003em
+      text-transform: uppercase
+
+    .dropdown-top-item:after
+      content: ""
+      width: 12px
+      height: 6px
+      background-image: url("/images/icon-caret.png")
+      background-size: contain
+      position: absolute
+      right: 9px
+      top: 14px
+
+    &.dropdown-is-open
+      .dropdown-menu
+        display: block
+        position: relative
+        z-index: 20
+        background: #FFF
+        border-bottom: 1px solid $border-color
+        border-left: 1px solid $border-color
+        border-right: 1px solid $border-color
+        box-shadow: 0px 3px 9px 1px rgba(black, 0.1)
+        left: -1px
+        width: 100.5%
+
+        a:hover
+          background: $blue
+          color: #fff
+
+    ul
+      display: none
+
+  .select-list
+    width: 100%
+    display: block
+    margin: 0
+    border: 1px solid $border-color
+    overflow: hidden
+    background-color: #fff
+
+
+
+    select
+      width: 100%
+      border: none
+      box-shadow: none
+      background-color: transparent
+      background-image: none
+      padding: 5px 8px
+      -webkit-appearance: none
+      letter-spacing: .003em
+
+      &:-ms-expand
+        display: none
+
+      &:focus
+        outline: none
