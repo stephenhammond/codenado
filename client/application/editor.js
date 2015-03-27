@@ -11,5 +11,14 @@ Template.editor.helpers({
   },
   isViewingBoard: function() {
     return Session.get("isViewingBoard");
+  },
+  currentTabConfig: function() {
+    // return Session.get("currentTabConfig")
+      return function(editor) {
+      editor.setTheme('ace/theme/monokai')
+      editor.getSession().setMode('ace/mode/javascript')
+      editor.setShowPrintMargin(false)
+      editor.getSession().setUseWrapMode(true)
+    }
   }
 });

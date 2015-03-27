@@ -3,7 +3,7 @@
   {{#if isViewingBoard}}
     {{> blackboard}}
   {{else}}
-    {{> sharejsAce docid=currentTab id="editor"}}
+    {{> sharejsAce docid=currentTab onRender=currentTabConfig id="editor"}}
   {{/if}}
-
+  
 </template>
