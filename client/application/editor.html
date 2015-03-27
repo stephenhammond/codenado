@@ -3,11 +3,11 @@
   {{#if isViewingBoard}}
     {{> blackboard}}
   {{else}}
-	<div class="syntax-container"> 
-		Syntax options:
-		{{> mode}}
-	</div>
-    {{> sharejsAce onRender=config onConnect=setMode docid=currentTab id="editor"}}
+  	<div class="syntax-container"> 
+  		Syntax options:
+  		{{> mode}}
+  	</div>
+      {{> sharejsAce onRender=config onConnect=setMode docid=currentTab id="editor"}}
   {{/if}}
 
 </template>

@@ -7,7 +7,6 @@ Deps.autorun(function(){
   }
 
   var usersOnline = Meteor.users.find({ "status.online": true });
-  console.log(usersOnline);
 
   Template.users.helpers({
     users: function () {

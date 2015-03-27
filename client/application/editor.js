@@ -3,7 +3,6 @@ Template.editor.onRendered( function() {
   var docid = pathname + '-tab1';
   Session.set('isViewingBoard', false);
   Session.set('currentTab', docid);
-  // console.log(currentTab);
 });
 
 Template.editor.helpers({
@@ -20,7 +19,9 @@ Template.editor.helpers({
       console.log(editor);
       editor.session.setMode("ace/mode/javascript");
       
-      $('#selectMode').on('change', function() {
+      $('#selectMode').on('change', function(e) {
+        var a = $("#editor").attr("data-docid");
+        console.log(a);
         editor.getSession().setUseWrapMode(true);
         console.log($(this).val());
         var newMode = $(this).val();
