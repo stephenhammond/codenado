@@ -13,7 +13,6 @@
                 <input type="checkbox" value="None" name="check" id="check">
                 <label for="check"></label>
               </div>
-
             </div>
 
             <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
@@ -34,14 +33,16 @@
       <div class="shared-controls">
         <form>
 
-          <div class="select-list">
-            <select class="export-list">
-              <option value="" default>EXPORT TO</option>
-              <option value="raw">Raw Text File (New Tab)</option>
-              <option value="email">Email Current Code</option>
-              <option value="gist">New Gist on Github</option>
-            </select>
-          </div>
+          <ul class="dropdown-select-list">
+            <li>
+              <a href="#" class="dropdown-top-item">Export To</a>
+              <ul class="dropdown-menu">
+                <li><a href="#" class="export-raw">Raw Text File (New Tab)</a></li>
+                <li><a href="#" class="export-email">Email Current Code</a></li>
+                <li><a href="#" class="export-gist">New Gist on Github</a></li>
+              </ul>
+            </li>
+          </ul>
 
         </form>
 

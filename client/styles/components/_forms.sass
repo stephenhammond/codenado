@@ -30,18 +30,24 @@ form
     display: block
     color: darken($border-color, 20%)
 
-  .select-list
+  .dropdown-select-list
+    display: block
+    border: 1px solid $border-color
+    background: white
+    position: relative
     color: #333
     width: 100%
-    display: block
-    position: relative
-    padding: 8px
-    margin: 0
-    border: 1px solid $border-color
-    overflow: hidden
-    background-color: #fff
+    font-size: .8em
 
-    &:after
+    a
+      padding: 8px
+      display: block
+      font-size: 14px
+      color: #333
+      letter-spacing: .003em
+      text-transform: uppercase
+
+    .dropdown-top-item:after
       content: ""
       width: 12px
       height: 6px
@@ -49,7 +55,37 @@ form
       background-size: contain
       position: absolute
       right: 9px
-      top: 42%
+      top: 14px
+
+    &.dropdown-is-open
+      .dropdown-menu
+        display: block
+        position: relative
+        z-index: 20
+        background: #FFF
+        border-bottom: 1px solid $border-color
+        border-left: 1px solid $border-color
+        border-right: 1px solid $border-color
+        box-shadow: 0px 3px 9px 1px rgba(black, 0.1)
+        left: -1px
+        width: 100.5%
+
+        a:hover
+          background: $blue
+          color: #fff
+
+    ul
+      display: none
+
+  .select-list
+    width: 100%
+    display: block
+    margin: 0
+    border: 1px solid $border-color
+    overflow: hidden
+    background-color: #fff
+
+
 
     select
       width: 100%
