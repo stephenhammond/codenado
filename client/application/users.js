@@ -1,4 +1,16 @@
-// WORK IN PROGRESS
+Template.users.events({
+
+  'click li .viewers-dropdown': function (e) {
+    e.preventDefault();
+    console.log('.');
+    $(e.target).closest('.viewers.dropdown-select-list').addClass('dropdown-is-open');
+  },
+
+  'blur .viewers .dropdown-top-item': function(){
+    $('.viewers.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
+  }
+
+});
 
 Deps.autorun(function(){
   if (Meteor.user()) {
@@ -22,9 +34,3 @@ Deps.autorun(function(){
     }
   });
 });
-
-
-
-
-
-

@@ -2,24 +2,46 @@
 
   <div class="users-container">
    <p class="app-label">Presenters</p>
+
     <ul class="users-list">
       <li class="presenters" data-presenter-count="{{users.length}}">
-
         {{#each users}}
           <div class="presenter" data-name="{{name}}">
             <span class="presenter-name">{{name}}</span>
             <img class="presenter-avatar" src="{{url}}">
           </div>
         {{/each}}
-
       </li>
 
-      <li class="viewers">
-        <a class="viewers-dropdown">
-          <span class="viewers-number">12</span>
+      <li class="viewers dropdown-select-list">
+        <a href="#" class="dropdown-top-item viewers-dropdown">
+          <b class="viewers-number">12</b>
+
+          <ul class="dropdown-menu">
+            <li class="viewer">
+              <b class="viewer-name">V02</b>
+              <button class="viewer-promote">Promote</button>
+            </li>
+                 <li class="viewer">
+              <b class="viewer-name">V02</b>
+              <button class="viewer-promote">Promote</button>
+            </li>
+
+                 <li class="viewer">
+              <b class="viewer-name">V02</b>
+              <button class="viewer-promote">Promote</button>
+            </li>
+
+                 <li class="viewer">
+              <b class="viewer-name">V02</b>
+              <button class="viewer-promote">Promote</button>
+            </li>
+          </ul>
+
         </a>
       </li>
 
     </ul>
+
   </div>
 </template>
