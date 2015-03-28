@@ -1,6 +1,6 @@
 Template.conf.onRendered( function(){
-
-	var connection = new RTCMultiConnection("commonchannel");
+	
+	var connection = new RTCMultiConnection("anotherchannel");
 	
 
 	// easiest way to customize what you need!
