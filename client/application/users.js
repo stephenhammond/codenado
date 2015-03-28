@@ -17,10 +17,13 @@ Deps.autorun(function(){
     Meteor.subscribe('userStatus');
   }
 
-  if (Meteor.users.count == 1) {
-    addUsersToRoles(Meteor.user(), "presenter");
-  }
-  
+  // console.log(Meteor.users.count);
+
+  // if (Meteor.users.count == 1) {
+  //   console.log("HERE!!");
+  //   setUserRoles(Meteor.user(), "presenter");
+  // }
+
   var usersOnline = Meteor.users.find({ "status.online": true });
 
   Template.users.helpers({
