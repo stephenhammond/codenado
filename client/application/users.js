@@ -17,6 +17,10 @@ Deps.autorun(function(){
     Meteor.subscribe('userStatus');
   }
 
+  if (Meteor.users.count == 1) {
+    addUsersToRoles(Meteor.user(), "presenter");
+  }
+  
   var usersOnline = Meteor.users.find({ "status.online": true });
 
   Template.users.helpers({
@@ -31,4 +35,7 @@ Deps.autorun(function(){
       return userArray;
     }
   });
+
+
+
 });

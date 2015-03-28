@@ -25,6 +25,9 @@ Accounts.onCreateUser(function (options, user) {
 
     user.profile = profile;
 
+
+ 
+
     return user;
 });
 
