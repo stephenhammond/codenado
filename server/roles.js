@@ -4,4 +4,4 @@ if (Roles.count == 0) {
   // Roles.createRole("masterPresenter");
 }
 
-  Roles.setUserRoles(currentUser, "presenter");
+  // Roles.setUserRoles(currentUser, "presenter");

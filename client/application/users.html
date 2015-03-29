@@ -15,27 +15,15 @@
 
       <li class="viewers dropdown-select-list">
         <a href="#" class="dropdown-top-item viewers-dropdown">
-          <b class="viewers-number">12</b>
+          <b class="viewers-number">{{userCount}}</b>
 
           <ul class="dropdown-menu">
-            <li class="viewer">
-              <b class="viewer-name">V02</b>
-              <button class="viewer-promote">Promote</button>
-            </li>
-                 <li class="viewer">
-              <b class="viewer-name">V02</b>
-              <button class="viewer-promote">Promote</button>
-            </li>
-
-                 <li class="viewer">
-              <b class="viewer-name">V02</b>
-              <button class="viewer-promote">Promote</button>
-            </li>
-
-                 <li class="viewer">
-              <b class="viewer-name">V02</b>
-              <button class="viewer-promote">Promote</button>
-            </li>
+            {{#each users}}
+              <li class="viewer">
+                <b class="viewer-name">{{name}}</b>
+                <button class="viewer-promote">Promote</button>
+              </li>
+            {{/each}}
           </ul>
 
         </a>

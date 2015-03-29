@@ -36,6 +36,19 @@ Deps.autorun(function(){
         });
       });
       return userArray;
+    },
+    updateRoles: function (targetUserId, roles, group) {
+      var loggedInUser = Meteor.user();
+
+      if (!loggedInUser ||
+          !Roles.userIsInRole(loggedInUser, 
+                              ['manage-users','support-staff'], group)) {
+        throw new Meteor.Error(403, "Access denied")
+      }
+      Roles.setUserRoles(targetUserId, roles, group)
+    },
+    userCount: function () {
+      return Meteor.users.find().count();
     }
   });
 
