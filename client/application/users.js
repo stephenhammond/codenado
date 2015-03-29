@@ -6,10 +6,18 @@ Template.users.events({
   },
 
   'mousedown .dropdown-menu button': function(){
-    Meteor.users.update(
-      { _id: this.id }, {
-      $set: { roles: "presenter" }
-      });
+    if (this.role == "viewer") {
+      Meteor.users.update(
+        { _id: this.id }, {
+        $set: { roles: "presenter" }
+        });
+    }
+    else {
+      Meteor.users.update(
+        { _id: this.id }, {
+        $set: { roles: "viewer" }
+        });
+    }
   },
 
   'blur .viewers.dropdown-select-list': function(){
@@ -19,7 +27,7 @@ Template.users.events({
 });
 
 Deps.autorun(function(){
-
+ 
   Meteor.subscribe('allUsers');
   Meteor.subscribe('userStatus');
 
@@ -36,6 +44,7 @@ Deps.autorun(function(){
     presenters: function () {
       var users = [];
       usersOnline.forEach( function(user) {
+        console.log(user.roles);
         if (user.roles == "presenter") {
           users.push({
             url: user.profile.avatar_url,
@@ -60,7 +69,6 @@ Deps.autorun(function(){
       return usersOnline.count();
     },
     roleIs: function(role) {
-      console.log(this);
       return this.role === role;
     }
   });
