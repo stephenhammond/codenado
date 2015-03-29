@@ -21,7 +21,10 @@
             {{#each allUsers}}
               <li class="viewer">
                 <b class="viewer-name">{{name}}</b>
-                <button class="viewer-promote">Promote</button>
+                <!-- LOOK INTO BLAZE !!!-->
+                <!-- {{#if roleIs 'viewer'}} -->
+                  <button class="viewer-promote">Promote</button>
+                <!-- {{/if}} -->
               </li>
             {{/each}}
           </ul>

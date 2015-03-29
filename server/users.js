@@ -11,8 +11,9 @@ Meteor.publish("userStatus", function() {
   return Meteor.users.find({ "status.online": true }, { fields: {'status': 1, 'roles': 1} });
 });
 
+// allows users to be updated on client. Used to update "roles" field when promoting to presenter
 Meteor.users.allow({
   update: function (userId, doc) {
     return true;
   }
-})
+});

@@ -34,36 +34,27 @@ Deps.autorun(function(){
 
   Template.users.helpers({
     presenters: function () {
-      var userArray = [];
+      var users = [];
       usersOnline.forEach( function(user) {
         if (user.roles == "presenter") {
-          userArray.push({
+          users.push({
             url: user.profile.avatar_url,
             name: user.profile.name
           });
         }
       });
-      return userArray;
+      return users;
     },
     allUsers: function () {
-      var userArray = [];
+      var users = [];
       usersOnline.forEach( function(user) {
-          userArray.push({
+          users.push({
             id: user._id,
+            role: user.roles,
             name: user.profile.name
           });
       });
-      return userArray;
-    }, 
-    updateRoles: function (targetUserId, roles, group) {
-      var loggedInUser = Meteor.user();
-
-      if (!loggedInUser ||
-          !Roles.userIsInRole(loggedInUser, 
-                              ['manage-users','support-staff'], group)) {
-        throw new Meteor.Error(403, "Access denied")
-      }
-      Roles.setUserRoles(targetUserId, roles, group)
+      return users;
     },
     usersOnlineCount: function () {
       return usersOnline.count();
