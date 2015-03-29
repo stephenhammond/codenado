@@ -1,0 +1,3 @@
+<template name="conf">
+	<button id="openNewSessionButton">Open New Room</button>
+</template>
