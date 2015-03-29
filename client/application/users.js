@@ -2,7 +2,6 @@ Template.users.events({
 
   'click li .viewers-dropdown': function (e) {
     e.preventDefault();
-    console.log('.');
     $(e.target).closest('.viewers.dropdown-select-list').addClass('dropdown-is-open');
   },
 
@@ -19,7 +18,6 @@ Deps.autorun(function(){
   }
 
   var usersOnline = Meteor.users.find({ "status.online": true });
-  console.log(usersOnline);
 
   Template.users.helpers({
     users: function () {

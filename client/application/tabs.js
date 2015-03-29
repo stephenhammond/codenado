@@ -6,7 +6,6 @@ Template.tabs.events({
     var tabID = $(e.target).data('tab-id');
     if (tabID === "board") {
       Session.set('isViewingBoard', true);
-      console.log(tabID);
       return false;
     }
     var pathname = window.location.pathname.split( '/' ).pop();
