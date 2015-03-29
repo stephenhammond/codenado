@@ -58,6 +58,10 @@ Deps.autorun(function(){
     },
     usersOnlineCount: function () {
       return usersOnline.count();
+    },
+    roleIs: function(role) {
+      console.log(this);
+      return this.role === role;
     }
   });
 
