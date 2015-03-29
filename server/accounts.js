@@ -27,9 +27,6 @@ Accounts.onCreateUser(function (options, user) {
 
     user.roles = "viewer";
 
-    if (!Meteor.user()) {
-        user.roles = "presenter";
-    }
 
     return user;
 });

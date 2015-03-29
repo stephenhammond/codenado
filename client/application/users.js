@@ -1,16 +1,19 @@
 Template.users.events({
 
-  'click li .viewers-dropdown': function (e) {
+'click li .viewers-dropdown': function (e) {
     e.preventDefault();
     $(e.target).closest('.viewers.dropdown-select-list').addClass('dropdown-is-open');
   },
 
-  'blur .viewers .dropdown-top-item': function(){
-    $('.viewers.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
+  'mousedown .dropdown-menu button': function(){
+    Meteor.users.update(
+      { _id: this.id }, {
+      $set: { roles: "presenter" }
+      });
   },
 
-  'click button .viewer-promote': function(){
-    console.log("you clicked the promote button");
+  'blur .viewers.dropdown-select-list': function(){
+    $('.viewers.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
   }
 
 });
@@ -19,6 +22,13 @@ Deps.autorun(function(){
 
   Meteor.subscribe('allUsers');
   Meteor.subscribe('userStatus');
+
+  if ( Meteor.users.find().count() == 1 ) {
+    Meteor.users.update(
+      { _id: Meteor.userId() }, {
+      $set: { roles: "presenter" }
+      });
+  }
 
   var usersOnline = Meteor.users.find({ "status.online": true });
 
@@ -39,7 +49,7 @@ Deps.autorun(function(){
       var userArray = [];
       usersOnline.forEach( function(user) {
           userArray.push({
-            url: user.profile.avatar_url,
+            id: user._id,
             name: user.profile.name
           });
       });
