@@ -8,7 +8,7 @@ Template.tabs.events({
       Session.set('isViewingBoard', true);
       return false;
     }
-    var pathname = window.location.pathname.split( '/' ).pop();
+    var pathname = Session.get('lobyID');
     var docid = pathname + '-tab' + tabID;
     Session.set('isViewingBoard', false);
     Session.set('currentTab', docid);

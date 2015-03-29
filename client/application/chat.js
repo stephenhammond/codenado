@@ -1,6 +1,6 @@
 Template.chatBox.helpers({
   "messages": function() {
-    var pathname = window.location.pathname.split( '/' ).pop();
+    var pathname = Session.get('lobyID');
     return chatCollection.find({pathname: pathname}, {sort: {date_created: -1}, limit: 10});
   }
 });
@@ -20,7 +20,7 @@ Template.chatBox.events({
     var message = $form.find('input').val();
     $form.find('input').val('');
     // var message = $('#chat-message').val();
-    var pathname = window.location.pathname.split( '/' ).pop();
+    var pathname = Session.get('lobyID');
 
     chatCollection.insert({
       date_created: Date.now(),
