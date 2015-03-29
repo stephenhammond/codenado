@@ -7,36 +7,44 @@ Template.users.events({
 
   'blur .viewers .dropdown-top-item': function(){
     $('.viewers.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
+  },
+
+  'click button .viewer-promote': function(){
+    console.log("you clicked the promote button");
   }
 
 });
 
 Deps.autorun(function(){
-  if (Meteor.user()) {
-    Meteor.subscribe('allUsers');
-    Meteor.subscribe('userStatus');
-  }
 
-  // console.log(Meteor.users.count);
-
-  // if (Meteor.users.count == 1) {
-  //   console.log("HERE!!");
-  //   setUserRoles(Meteor.user(), "presenter");
-  // }
+  Meteor.subscribe('allUsers');
+  Meteor.subscribe('userStatus');
 
   var usersOnline = Meteor.users.find({ "status.online": true });
 
   Template.users.helpers({
-    users: function () {
+    presenters: function () {
       var userArray = [];
       usersOnline.forEach( function(user) {
-        userArray.push({
-          url: user.profile.avatar_url,
-          name: user.profile.name
-        });
+        if (user.roles == "presenter") {
+          userArray.push({
+            url: user.profile.avatar_url,
+            name: user.profile.name
+          });
+        }
       });
       return userArray;
     },
+    allUsers: function () {
+      var userArray = [];
+      usersOnline.forEach( function(user) {
+          userArray.push({
+            url: user.profile.avatar_url,
+            name: user.profile.name
+          });
+      });
+      return userArray;
+    }, 
     updateRoles: function (targetUserId, roles, group) {
       var loggedInUser = Meteor.user();
 
@@ -47,11 +55,10 @@ Deps.autorun(function(){
       }
       Roles.setUserRoles(targetUserId, roles, group)
     },
-    userCount: function () {
-      return Meteor.users.find().count();
+    usersOnlineCount: function () {
+      return usersOnline.count();
     }
   });
-
 
 
 });
