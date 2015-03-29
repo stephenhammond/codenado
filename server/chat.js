@@ -1,9 +1,10 @@
-chatStream = new Meteor.Stream('chat');
+// chatCollection = new Meteor.Collection('chatCollection');
+// chatStream = new Meteor.Stream('chat');
 
-chatStream.permissions.write(function() {
-  return true;
-});
+// chatStream.permissions.write(function() {
+//   return true;
+// });
 
-chatStream.permissions.read(function() {
-  return true;
-});
+// chatStream.permissions.read(function() {
+//   return true;
+// });

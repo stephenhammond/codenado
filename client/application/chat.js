@@ -1,37 +1,15 @@
-chatStream = new Meteor.Stream('chat');
-chatCollection = new Meteor.Collection(null);
-
-chatStream.on('chat', function(message) {
-  chatCollection.insert({
-    userId: this.userId,
-    subscriptionId: this.subscriptionId,
-    message: message
-  });
-});
-
 Template.chatBox.helpers({
   "messages": function() {
-    return chatCollection.find();
+    var pathname = window.location.pathname.split( '/' ).pop();
+    return chatCollection.find({pathname: pathname}, {sort: {date_created: -1}, limit: 10});
   }
 });
 
-
-var subscribedUsers = {};
-
 Template.chatMessage.helpers({
   "user": function() {
-    if(this.userId == 'me') {
-      return "me";
-    } else if(this.userId) {
-      var username = Session.get('user-' + this.userId);
-      if(username) {
-        return username;
-      } else {
-        getUsername(this.userId);
-      }
-    } else {
-      return this.subscriptionId;
-    }
+
+    return "me";
+
   }
 });
 
@@ -40,22 +18,16 @@ Template.chatBox.events({
     e.preventDefault();
     var $form = $('.chat-input-form')
     var message = $form.find('input').val();
+    $form.find('input').val('');
     // var message = $('#chat-message').val();
+    var pathname = window.location.pathname.split( '/' ).pop();
+
     chatCollection.insert({
+      date_created: Date.now(),
+      pathname: pathname,
       userId: 'me',
       message: message
     });
-    chatStream.emit('chat', message);
-     $('#chat-message').val('');
+
   }
 });
-
-function getUsername(id) {
-  Meteor.subscribe('user-info', id);
-  Deps.autorun(function() {
-    var user = Meteor.users.findOne(id);
-    if(user) {
-      Session.set('user-' + id, user.username);
-    }
-  });
-}
