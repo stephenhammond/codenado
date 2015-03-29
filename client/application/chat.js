@@ -1,15 +1,7 @@
 Template.chatBox.helpers({
   "messages": function() {
-    var pathname = Session.get('lobyID');
-    return chatCollection.find({pathname: pathname}, {sort: {date_created: -1}, limit: 10});
-  }
-});
-
-Template.chatMessage.helpers({
-  "user": function() {
-
-    return "me";
-
+    var lobyID = Session.get('lobyID');
+    return chatCollection.find({lobyID: lobyID}, {sort: {date_created: -1}, limit: 10});
   }
 });
 
@@ -20,14 +12,14 @@ Template.chatBox.events({
     var message = $form.find('input').val();
     $form.find('input').val('');
     // var message = $('#chat-message').val();
-    var pathname = Session.get('lobyID');
+    var lobyID = Session.get('lobyID');
+    var user = Session.get('username');
 
     chatCollection.insert({
       date_created: Date.now(),
-      pathname: pathname,
-      userId: 'me',
+      lobyID: lobyID,
+      userId: user,
       message: message
     });
-
   }
 });
