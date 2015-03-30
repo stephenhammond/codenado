@@ -1,5 +1,5 @@
 Template.editor.onRendered( function() {
-  var pathname = window.location.pathname.split( '/' ).pop();
+  var pathname = Session.get('lobbyID');
   var docid = pathname + '-tab1';
   Session.set('isViewingBoard', false);
   Session.set('currentTab', docid);
