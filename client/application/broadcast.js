@@ -49,12 +49,12 @@ Template.broadcast.onRendered( function(){
 	          });
 	      }
 
-	      if (role == 'Broadcaster') {
+	      if (role == 'Co-Presenter') {
 	          session.join();
 	      }
 	  };
 
-	  if (role == 'Room Moderator')
+	  if (role == 'Presenter')
 	      connection.open({
 	          sessionid: connection.channel,
 	          captureUserMediaOnDemand: false

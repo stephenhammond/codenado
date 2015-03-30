@@ -19,6 +19,16 @@
               <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
             </form>
           {{/if}}
+          <form>
+            <div class="microphone-controls">
+              <label for="mute-myself">Microphone Muted</label>
+              <div class="toggle-switch">
+                <input type="checkbox" value="None" name="check" id="check">
+                <label for="check"></label>
+              </div>
+            </div>
+            <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
+          </form>
         </div>
       
 
@@ -35,9 +45,13 @@
         </div>
 
       <!-- SHARED CONTROLS -->
+        <!-- VIDEO CONTROLS -->
+      <div class="video-controls">
+        {{> broadcast}}
+      </div>
+        <!-- EXPORT CONTROLS -->
       <div class="shared-controls">
         <form>
-
           <ul class="dropdown-select-list">
             <li>
               <a href="#" class="dropdown-top-item">Export To</a>
@@ -48,11 +62,8 @@
               </ul>
             </li>
           </ul>
-
         </form>
-
       </div>
-
 
     </div>
   </div>
