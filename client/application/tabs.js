@@ -12,7 +12,6 @@ Template.tabs.events({
     var docid = pathname + '-tab' + tabID;
     Session.set('isViewingBoard', false);
     Session.set('currentTab', docid);
-    console.log("doing 2nd time");
     return false;
   }
 

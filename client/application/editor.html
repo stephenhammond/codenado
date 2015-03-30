@@ -1,13 +1,9 @@
 <template name="editor">
 
   {{#if isViewingBoard}}
-    {{> blackboard}}
+   {{> blackboard}}
   {{else}}
-	<div class="syntax-container"> 
-		Syntax options:
-		{{> mode}}
-	</div>
-    {{> sharejsAce onRender=config onConnect=setMode docid=currentTab id="editor"}}
+   {{> sharejsAce docid=currentTab id="editor"}}
   {{/if}}
 
 </template>

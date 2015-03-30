@@ -3,7 +3,6 @@ Template.editor.onRendered( function() {
   var docid = pathname + '-tab1';
   Session.set('isViewingBoard', false);
   Session.set('currentTab', docid);
-  // console.log(currentTab);
 });
 
 Template.editor.helpers({
@@ -12,24 +11,5 @@ Template.editor.helpers({
   },
   isViewingBoard: function() {
     return Session.get("isViewingBoard");
-  },
-  config: function () {
-    return function(editor) {
-      editor.setTheme('ace/theme/monokai');
-      editor.setShowPrintMargin(false);
-      editor.session.setMode("ace/mode/javascript");
-      
-      $('#selectMode').on('change', function() {
-        editor.getSession().setUseWrapMode(true);
-        var newMode = $(this).val();
-        editor.session.setMode("ace/mode/" + newMode);
-      })
-    }
-  },
-  // setMode: function() {
-  //   return function(editor) {
-  //     console.log('OnConnected');      
-  //   }
-  // }
-});
-      
+  }
+});   
