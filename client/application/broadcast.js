@@ -1,26 +1,30 @@
-Template.broadcast.onRendered( function(){
+Deps.autorun(function(){
 
-	var selectRole = document.querySelector('#selectRole');
-	var launchConf = document.querySelector('#launchConf');
-	var videos = document.querySelector('#videos');
+	Template.broadcast.onRendered( function(){
 
-	launchConf.onclick = function() {
-	  this.disabled = true;
-	  var role = selectRole.value;
-	  window.connection = new RTCMultiConnection();
+		// var selectRole = document.querySelector('#selectRole');
+		var launchConf = document.querySelector('#launchConf');
+		var videos = document.querySelector('#videos');
+		var joinConf = document.querySelector('#joinConf');
 
-	  // dont-override-session allows you force RTCMultiConnection
-	  // to not override default session of participants;
-	  // by default, session is always overridden and set to the session coming from initiator!
-	  connection.dontOverrideSession = true;
 
-	  connection.session = {
+		launchConf.onclick = function() {
+		  this.disabled = true;
+		  var role = Meteor.user().roles;
+		  window.connection = new RTCMultiConnection();
+
+		  // dont-override-session allows you force RTCMultiConnection
+		  // to not override default session of participants;
+		  // by default, session is always overridden and set to the session coming from initiator!
+		  connection.dontOverrideSession = true;
+
+		  connection.session = {
 	      audio: true,
 	      video: true,
-	      oneway: role == 'Anonymous Viewer'
-	  };
+	      oneway: role == 'viewer'
+		  };
 
-	  connection.onstream = function(e) {
+		  connection.onstream = function(e) {
 	      videos.appendChild(e.mediaElement);
 
 	      if (e.type == 'remote') {
@@ -38,28 +42,55 @@ Template.broadcast.onRendered( function(){
 	          // call "shareParticipants" to manually share participants with all connected users!
 	          connection.shareParticipants({
 	              dontShareWith: e.userid
-	          });
+	         	});
 	      }
-	  };
+		  };
 
-	  connection.onNewSession = function(session) {
-	      if (role == 'Anonymous Viewer') {
-	          session.join({
-	              oneway: true
-	          });
+		  connection.onNewSession = function(session) {
+	      if (role == 'viewer') {
+	        session.join({
+	            oneway: true
+	        });
 	      }
 
-	      if (role == 'Co-Presenter') {
-	          session.join();
-	      }
-	  };
+	      // if (role == 'presenter' ) {
+	      //     session.join();
+	      // }
+		  };
 
-	  if (role == 'Presenter')
+		  if (role == 'presenter') {
 	      connection.open({
-	          sessionid: connection.channel,
-	          captureUserMediaOnDemand: false
+	        sessionid: connection.channel,
+	        captureUserMediaOnDemand: false
 	      });
-	  else
-	      connection.connect(connection.channel);
-	};
-})
+	    } 
+		  else {
+		      connection.connect(connection.channel);
+		  }    
+		};
+
+		joinConf.onclick = function() {
+				// join existing sessionid
+		}
+
+	});
+
+  Template.broadcast.helpers({
+    userIsPresenter: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "presenter";
+      }
+    },
+    userIsViewer: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "viewer";
+      } 
+    },
+    userIsPresenterAndNoConference: function () {
+    	return true;
+    },
+    conferenceStarted: function () {
+    	return true;
+    }
+  });
+});

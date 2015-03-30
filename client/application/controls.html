@@ -3,6 +3,10 @@
     <div class="controls-container">
 
         <!-- PRESENTER CONTROLS -->
+
+        <div class="video-controls">
+          {{> broadcast}}
+        </div>
       
         <div class="is-presenter">
           {{#if userIsPresenter}}
@@ -36,9 +40,7 @@
 
       <!-- SHARED CONTROLS -->
         <!-- VIDEO CONTROLS -->
-      <div class="video-controls">
-        {{> broadcast}}
-      </div>
+   
         <!-- EXPORT CONTROLS -->
       <div class="shared-controls">
         <form>

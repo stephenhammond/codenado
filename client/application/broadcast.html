@@ -1,9 +1,9 @@
 <template name="broadcast">
-    <p>Join Video Conference:</p>
-    <select id="selectRole">
-        <option>Presenter</option>
-        <option>Co-Presenter</option>
-        <option>Anonymous Viewer</option>
-    </select>
+  {{#if userIsPresenterAndNoConference}}
     <button id="launchConf">Launch Conference</button> <br />
+  {{/if}}
+
+  {{#if conferenceStarted}}
+    <button id="joinConf">Join Conference</button> <br />
+  {{/if}}
 </template>
