@@ -3,30 +3,35 @@
     <div class="controls-container">
 
         <!-- PRESENTER CONTROLS -->
+      
         <div class="is-presenter">
-          <form>
+          {{#if userIsPresenter}}
+            <form>
+              <div class="microphone-controls">
 
-            <div class="microphone-controls">
-
-              <label for="mute-myself">Microphone Muted</label>
-              <div class="toggle-switch">
-                <input type="checkbox" value="None" name="check" id="check">
-                <label for="check"></label>
+                <label for="mute-myself">Microphone Muted</label>
+                <div class="toggle-switch">
+                  <input type="checkbox" value="None" name="check" id="check">
+                  <label for="check"></label>
+                </div>
               </div>
-            </div>
 
-            <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
-
-          </form>
+              <input class="presenter-lobby-id" type="text" placeholder="Change Your URL">
+            </form>
+          {{/if}}
         </div>
+      
+
 
         <!-- VIEWER CONTROLS -->
         <div class="is-viewer">
-          <form>
-            <input class="viewer-name" type="text" placeholder="What's Your Name?">
-            <input class="viewer-email" type="text" placeholder="What's Your Email?">
-            <span class="input-note">Export code to email</span>
-          </form>
+          {{#if userIsViewer}}
+            <form>
+              <input class="viewer-name" type="text" placeholder="What's Your Name?">
+              <input class="viewer-email" type="text" placeholder="What's Your Email?">
+              <span class="input-note">Export code to email</span>
+            </form>
+          {{/if}}  
         </div>
 
       <!-- SHARED CONTROLS -->

@@ -44,7 +44,6 @@ Deps.autorun(function(){
     presenters: function () {
       var users = [];
       usersOnline.forEach( function(user) {
-        console.log(user.roles);
         if (user.roles == "presenter") {
           users.push({
             url: user.profile.avatar_url,
@@ -70,6 +69,9 @@ Deps.autorun(function(){
     },
     roleIs: function(role) {
       return this.role === role;
+    },
+    userIsPresenter: function () {
+      return Meteor.user().roles === "presenter";
     }
   });
 

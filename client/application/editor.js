@@ -17,12 +17,10 @@ Template.editor.helpers({
     return function(editor) {
       editor.setTheme('ace/theme/monokai');
       editor.setShowPrintMargin(false);
-      console.log(editor);
       editor.session.setMode("ace/mode/javascript");
       
       $('#selectMode').on('change', function() {
         editor.getSession().setUseWrapMode(true);
-        console.log($(this).val());
         var newMode = $(this).val();
         editor.session.setMode("ace/mode/" + newMode);
       })

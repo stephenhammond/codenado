@@ -4,7 +4,7 @@
    <p class="app-label">Presenters</p>
 
     <ul class="users-list">
-      <li class="presenters" data-presenter-count="{{users.length}}">
+      <li class="presenters" data-presenter-count="{{presenters.length}}">
         {{#each presenters}}
           <div class="presenter" data-name="{{name}}">
             <span class="presenter-name">{{name}}</span>
@@ -17,19 +17,21 @@
         <a href="#" class="dropdown-top-item viewers-dropdown">
           <b class="viewers-number">{{usersOnlineCount}}</b>
 
-          <ul class="dropdown-menu">
-            {{#each allUsers}}
-              <li class="viewer">
-                <b class="viewer-name">{{name}}</b>
-                {{#if roleIs 'viewer'}}
-                  <button class="viewer-promote">Promote</button>
-                {{/if}}
-                {{#if roleIs 'presenter'}}
-                  <button class="viewer-promote">Demote</button>
-                {{/if}}
-              </li>
-            {{/each}}
-          </ul>
+            <ul class="dropdown-menu">
+              {{#each allUsers}}
+                <li class="viewer">
+                  <b class="viewer-name">{{name}}</b>
+                  {{#if userIsPresenter}}
+                    {{#if roleIs 'viewer'}}
+                      <button class="viewer-promote">Promote</button>
+                    {{/if}}
+                    {{#if roleIs 'presenter'}}
+                      <button class="viewer-promote">Demote</button>
+                    {{/if}}
+                   {{/if}} 
+                </li>
+              {{/each}}
+            </ul>
 
         </a>
       </li>
