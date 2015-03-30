@@ -10,3 +10,18 @@ Template.controls.events({
   }
 
 });
+
+Deps.autorun(function(){
+  Template.controls.helpers({
+    userIsPresenter: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "presenter";
+      }
+    },
+    userIsViewer: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "viewer";
+      } 
+    }
+  });
+});

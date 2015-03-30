@@ -25,6 +25,9 @@ Accounts.onCreateUser(function (options, user) {
 
     user.profile = profile;
 
+    // default user roles to viewers on creation unless they are the first user
+    user.roles = "viewer";
+
     return user;
 });
 

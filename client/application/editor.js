@@ -12,4 +12,4 @@ Template.editor.helpers({
   isViewingBoard: function() {
     return Session.get("isViewingBoard");
   }
-});
+});   
