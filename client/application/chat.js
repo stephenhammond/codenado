@@ -13,13 +13,7 @@ Template.chatBox.events({
     $form.find('input').val('');
     // var message = $('#chat-message').val();
     var lobbyID = Session.get('lobbyID');
-
-    if (Meteor.user()) {
-      var user = Meteor.user().profile.name;
-    }
-    else {
-      var user = Session.get('username');
-    }
+    var user = Session.get('username');
 
     chatCollection.insert({
       date_created: Date.now(),
