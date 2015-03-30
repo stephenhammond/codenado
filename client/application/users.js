@@ -53,7 +53,7 @@ Deps.autorun(function(){
       });
       return users;
     },
-    allUsers: function () {
+    allUsers: function () { 
       var users = [];
       usersOnline.forEach( function(user) {
           users.push({
@@ -72,6 +72,9 @@ Deps.autorun(function(){
     },
     userIsPresenter: function () {
       return Meteor.user().roles === "presenter";
+    },
+    oneUser: function () {
+      return Meteor.users.find().count() == 1;
     }
   });
 

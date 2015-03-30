@@ -21,14 +21,16 @@
               {{#each allUsers}}
                 <li class="viewer">
                   <b class="viewer-name">{{name}}</b>
-                  {{#if userIsPresenter}}
-                    {{#if roleIs 'viewer'}}
-                      <button class="viewer-promote">Promote</button>
-                    {{/if}}
-                    {{#if roleIs 'presenter'}}
-                      <button class="viewer-promote">Demote</button>
-                    {{/if}}
-                   {{/if}} 
+                  {{#unless oneUser}} 
+                    {{#if userIsPresenter}}
+                      {{#if roleIs 'viewer'}}
+                        <button class="viewer-promote">Promote</button>
+                      {{/if}}
+                      {{#if roleIs 'presenter'}}
+                        <button class="viewer-promote">Demote</button>
+                      {{/if}}
+                    {{/if}} 
+                   {{/unless}}  
                 </li>
               {{/each}}
             </ul>
