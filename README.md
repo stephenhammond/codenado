@@ -13,9 +13,8 @@ Online code collaboration tool
 
 **Never commit directly to master**. Instead, create small branches for each and every topic you work on (such as a feature or bug fix), and create a pull request into master when the branch is complete.
 
-1. Make any to code
-2. Checkout new branch
-	Name branches as concisely as possible, separated by underscores.
+1. Make any edits to code
+2. Checkout new branch. Name branches as concisely as possible, separated by underscores.
 
 	`$ git checkout -b <branch-name>`
 3. Commit work and add commit message.
@@ -71,9 +70,16 @@ Great, you've been working and now are ready to create a pull request and get yo
 ### For blackboard (wip)
 `$ meteor add jquery`
 (apparently it might not automatically be included in the latest build?)
+
+
 `$ meteor add insecure`
+
 `$ meteor add autopublish`
+
 (until we set up subscriptions)
+
 `$ meteor add preserve-inputs`
+
 `$ meteor add standard-app-packages`
+
 (deprecated, but we might still need it)
