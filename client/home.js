@@ -4,7 +4,14 @@ Template.home.events({
 
     var hash = Meteor.uuid();
     var lobbyId = hash.substring(hash.length - 7);
-    Session.set('lobbyId', lobbyId);
     Router.go('/app/' + lobbyId);
   }
+});
+
+
+Template.home.onRendered(function() {
+
+ var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  $(".masthead").css("height", viewportHeight + "px");
+
 });
