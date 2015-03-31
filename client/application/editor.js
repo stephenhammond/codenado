@@ -1,8 +1,8 @@
 Template.editor.onRendered( function() {
-  var pathname = Session.get('lobbyID');
-  var docid = pathname + '-tab1';
+  var pathname = Session.get('lobbyId');
+  var docId = pathname + '-tab1';
   Session.set('isViewingBoard', false);
-  Session.set('currentTab', docid);
+  Session.set('currentTab', docId);
 });
 
 Template.editor.helpers({
@@ -12,4 +12,4 @@ Template.editor.helpers({
   isViewingBoard: function() {
     return Session.get("isViewingBoard");
   }
-});   
+});
