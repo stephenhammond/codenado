@@ -7,20 +7,22 @@ Template.chatBox.helpers({
 
 Template.chatBox.events({
   "submit .chat-input-form": function(e) {
-    e.preventDefault();
     var $form = $('.chat-input-form')
+    var lobbyID = Session.get('lobbyID');
+    var user = Session.get('chatname');
     var message = $form.find('input').val();
     $form.find('input').val('');
-    // var message = $('#chat-message').val();
-    var lobbyID = Session.get('lobbyID');
-    var user = Session.get('username');
-
-    chatCollection.insert({
-      date_created: Date.now(),
-      lobbyID: lobbyID,
-      userId: user,
-      message: message
-    });
+    if (message === ''){
+      return false
+    } else {
+      chatCollection.insert({
+        date_created: Date.now(),
+        lobbyID: lobbyID,
+        userId: user,
+        message: message
+      });
+      return false;
+    }
   }
 });
 
