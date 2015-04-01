@@ -27,8 +27,8 @@ Template.users.events({
 });
 
 Deps.autorun(function(){
- 
   Meteor.subscribe('allUserData');
+  Meteor.subscribe('allUsers');
   Meteor.subscribe('userStatus');
 
   if ( Meteor.users.find().count() == 1 ) {
@@ -71,7 +71,10 @@ Deps.autorun(function(){
       return this.role === role;
     },
     userIsPresenter: function () {
-      return Meteor.user().roles === "presenter";
+      var role = Meteor.user.role;
+      if (undefined != Meteor.user.role) {
+        return Meteor.user().roles === "presenter";
+      }
     }
   });
 
