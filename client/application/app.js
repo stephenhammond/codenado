@@ -1,8 +1,8 @@
-document.title = "CodeThing";
+document.title = "Codenado";
 
 Template.app.onCreated(function() {
-  var pathname = window.location.pathname.split( '/' ).pop();
-  Session.set('lobbyId', pathname);
+  var lobbyId = window.location.pathname.split( '/' ).pop();
+  Session.set('lobbyId', lobbyId);
   setChatName();
 });
 
