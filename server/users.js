@@ -4,7 +4,7 @@ Meteor.publish("userData", function () {
 });
 
 Meteor.publish("allUserData", function () {
-  return Meteor.users.find({}, {fields: {'avatar_url': 1, 'roles': 1}});
+  return Meteor.users.find();
 });
 
 Meteor.publish("userStatus", function() {
