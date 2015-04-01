@@ -2,9 +2,7 @@
   <div class="controls">
     <div class="controls-container">
 
-        <!-- PRESENTER CONTROLS -->
-      
-        <div class="is-presenter">
+        <!-- <div class="is-presenter">
           {{#if userIsPresenter}}
             <form>
               <div class="microphone-controls">
@@ -20,27 +18,19 @@
             </form>
           {{/if}}
         </div>
-      
+       -->
 
-
-        <!-- VIEWER CONTROLS -->
         <div class="is-viewer">
           {{#if userIsViewer}}
             <form>
               <input class="viewer-name" type="text" placeholder="What's Your Name?">
-              <input class="viewer-email" type="text" placeholder="What's Your Email?">
-              <span class="input-note">Export code to email</span>
+              <!-- <input class="viewer-email" type="text" placeholder="What's Your Email?">
+              <span class="input-note">Export code to email</span> -->
             </form>
-          {{/if}}  
+          {{/if}}
         </div>
 
-      <!-- SHARED CONTROLS -->
-        <!-- VIDEO CONTROLS -->
-      <div class="video-controls">
-        {{> broadcast}}
-      </div>
-        <!-- EXPORT CONTROLS -->
-      <div class="shared-controls">
+ <!--      <div class="shared-controls">
         <form>
           <ul class="dropdown-select-list">
             <li>
@@ -54,7 +44,7 @@
           </ul>
         </form>
       </div>
-
+ -->
     </div>
   </div>
 

@@ -3,7 +3,7 @@
     ".meteor/local/build/programs/server/assets/packages/francocatena_compass"
   ],
   "useIndex" : true,
-  "indexFilePath" : "client/styles/screen.sass",
+  "indexFilePath" : "client/stylesheets/screen.sass",
   "enableAutoprefixer": true,
   "autoprefixerOptions": {
     "browsers": ["last 2 versions", "Explorer >= 9"],
