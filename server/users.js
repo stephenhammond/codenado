@@ -18,13 +18,11 @@ Meteor.users.allow({
   }
 });
 
-
-Meteor.publish("userStatus", function() {
-  return Meteor.users.find({ "status.online": true }, { fields: {'status': 1, 'roles': 1} });
-});
-
-
 Meteor.publish("lines", function(){
   return Lines.find();
 });
-  
+
+Meteor.publish("chat", function(){
+  return chatCollection.find();
+});
+

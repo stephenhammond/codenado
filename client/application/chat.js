@@ -1,3 +1,5 @@
+Meteor.subscribe('chat');
+
 Template.chatBox.helpers({
   "messages": function() {
     var lobbyId = Session.get('lobbyId');
@@ -27,6 +29,7 @@ Template.chatBox.events({
 });
 
 Template.chatMessage.onRendered(function(){
+  // SCROLL ELEMENT DOWN
   var el = $('.chat-history');
   el.scrollTop(el[0].scrollHeight);
 })
