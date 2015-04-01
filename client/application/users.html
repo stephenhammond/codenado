@@ -25,9 +25,11 @@
                     {{#if roleIs 'viewer'}}
                       <button class="viewer-promote">Promote</button>
                     {{/if}}
-                    {{#if roleIs 'presenter'}}
-                      <button class="viewer-promote">Demote</button>
-                    {{/if}}
+                    {{#unless onePresenter}}
+                      {{#if roleIs 'presenter'}}
+                        <button class="viewer-promote">Demote</button>
+                      {{/if}}
+                    {{/unless}}
                    {{/if}} 
                 </li>
               {{/each}}

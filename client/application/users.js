@@ -72,6 +72,9 @@ Deps.autorun(function(){
     },
     userIsPresenter: function () {
       return Meteor.user().roles === "presenter";
+    },
+    onePresenter: function () {
+     return Meteor.users.find({"roles": "presenter"}).count() == 1;
     }
   });
 
