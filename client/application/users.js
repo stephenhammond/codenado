@@ -28,7 +28,7 @@ Template.users.events({
 
 Deps.autorun(function(){
  
-  Meteor.subscribe('allUsers');
+  Meteor.subscribe('allUserData');
   Meteor.subscribe('userStatus');
 
   if ( Meteor.users.find().count() == 1 ) {
