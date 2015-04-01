@@ -1,4 +1,8 @@
+
 Template.blackboard.onRendered( function() {
+
+  Meteor.subscribe('lines');
+
   // Custom fixes to correct drawing offset:
   var widthFix = 0.795;
   var yCoordFix = 97;

@@ -4,7 +4,7 @@ Meteor.publish("userData", function () {
 });
 
 Meteor.publish("allUserData", function () {
-  return Meteor.users.find({}, {fields: {'avatar_url': 1, 'roles': 1}});
+  return Meteor.users.find();
 });
 
 Meteor.publish("userStatus", function() {
@@ -17,3 +17,14 @@ Meteor.users.allow({
     return true;
   }
 });
+
+
+Meteor.publish("userStatus", function() {
+  return Meteor.users.find({ "status.online": true }, { fields: {'status': 1, 'roles': 1} });
+});
+
+
+Meteor.publish("lines", function(){
+  return Lines.find();
+});
+  
