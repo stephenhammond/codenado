@@ -6,7 +6,6 @@
 
 meteor-platform
 coffeescript
-lepozepo:streams
 iron:router
 fourseven:scss
 francocatena:compass
