@@ -71,13 +71,15 @@ Deps.autorun(function(){
       return this.role === role;
     },
     userIsPresenter: function () {
-      return Meteor.user().roles === "presenter";
+      var role = Meteor.user().roles;
+      if (undefined != role) {
+        return role === "presenter";
+      }
     },
     onePresenter: function () {
      return Meteor.users.find({"roles": "presenter"}).count() == 1;
     }
   });
-
 
 });
 
