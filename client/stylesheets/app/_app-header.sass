@@ -1,7 +1,36 @@
 // APP HEADER & NAVBAR
-.app-container
+header.app-header
+  // +container(100%)
+  +container
+  position: relative
+  z-index: 2
 
-  header.app-header
+  nav
+    +container
+    background: #1f2427
+
+    ul
+      &:first-of-type
+        margin-left: 0
+
+      &:last-of-type
+        margin-right: 0
+
+  .navbar-item
+    padding: $padding-default
+    display: block
+    color: white
+
+  .navbar-left
+    float: left
+
+  .navbar-right
+    float: right
+
+  .current-user-avatar
+    border-radius: 100%
+    float: right
+    height: 35px
     position: relative
     z-index: 2
 
@@ -50,7 +79,7 @@
         background-size: 100% auto
         background-repeat: no-repeat
         width: 20px
-        height: 25px
+        height: 24px
         position: absolute
         top: -3px
         left: 0

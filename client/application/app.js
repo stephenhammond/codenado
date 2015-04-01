@@ -6,6 +6,15 @@ Template.app.onCreated(function() {
   setChatName();
 });
 
+Template.app.onRendered(function(){
+  resizeApp();
+
+  $(window).resize(function(){
+    resizeApp();
+  });
+
+});
+
 Template.app.events({
   'click #login-buttons-logout': function(){
     Meteor.logout( function() {
@@ -18,6 +27,20 @@ Template.app.events({
     });
   }
 });
+
+function resizeApp(){
+  console.log('resized');
+  var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  var headerHeight = $(".app-header").height();
+
+  var appPort = (viewportHeight - headerHeight);
+  $(".app-primary, .app-sidebar").css("height", appPort  + "px");
+
+  var tabHeight = $('.tabs-container').height();
+  var editorPort = tabHeight - appPort;
+  $('#editor').css("height", editorPort  + "px");
+
+}
 
 function setChatName() {
   if (Meteor.users.findOne(Meteor.userId())) {
