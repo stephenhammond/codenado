@@ -17,3 +17,14 @@ Meteor.users.allow({
     return true;
   }
 });
+
+
+Meteor.publish("userStatus", function() {
+  return Meteor.users.find({ "status.online": true }, { fields: {'status': 1, 'roles': 1} });
+});
+
+
+Meteor.publish("lines", function(){
+  return Lines.find();
+});
+  
