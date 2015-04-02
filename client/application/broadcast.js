@@ -1,16 +1,9 @@
 Template.broadcast.onRendered( function(){
-	console.log("---PAGE RENDERED");
 
 	var selectRole = document.querySelector('#selectRole');
 	var launchConf = document.querySelector('#launchConf');
 	var videos = document.querySelector('#videos');
 	var exitConf = document.querySelector('#exitConf');
-	// function resetRole(currentRole){
-	// 	if (currentRole == 'Viewer' || currentRole == 'Co-Presenter') {
-	// 	currentRole = "reset";
-	// 	}
-	// };
-
 
 	launchConf.onclick = function() {
 		console.log("----launchConf button clicked");
@@ -54,9 +47,9 @@ Template.broadcast.onRendered( function(){
 	      // if target user is broadcaster!
 	      if (connection.isInitiator && e.type == 'remote' && !e.session.oneway) {
 	          // call "shareParticipants" to manually share participants with all connected users!
-	          connection.shareParticipants({
-	              dontShareWith: e.userid
-	          });
+          connection.shareParticipants({
+              dontShareWith: e.userid
+          });
 	      }
 	  };
 	  connection.transmitRoomOnce = true;
@@ -72,9 +65,6 @@ Template.broadcast.onRendered( function(){
 	      if (role == 'Co-Presenter') {
 	          session.join();
 	      }
-	      else {
-	      	session.leave();
-	      }
 	  };
 
 	  if (role == 'Presenter')
@@ -85,15 +75,10 @@ Template.broadcast.onRendered( function(){
 	  else
 	      connection.connect(connection.channel);
 	    	console.log("----connection.connect called!");
-
-	 exitConf.onclick = function() {
-		console.log("--------exitConf button clicked");
-		console.log(role);
-		connection.close();
-		}
-
 	};
 
-
-
+		exitConf.onclick = function() {
+		console.log("--------exitConf button clicked");
+		connection.close();
+		}
 })
