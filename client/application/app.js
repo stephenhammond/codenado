@@ -38,8 +38,11 @@ function resizeApp(){
   var tabHeight = $('.tabs-container').height();
   var editorHeight = tabHeight - appHeight;
 
-  $('#editor').css("height", editorHeight  + "px");
-
+  if (editorHeight <= 10) {
+    editorHeight = 600
+  } else {
+    $('#editor').css("height", editorHeight  + "px");
+  }
 }
 
 function setChatName() {
