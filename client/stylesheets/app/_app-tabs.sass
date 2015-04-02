@@ -10,9 +10,15 @@
     display: block
     width: 100%
 
+    +below(480px)
+      height: 40px
+
   .tab
     display: inline-block
     margin-left: -4px
+
+    +below(480px)
+      margin-left: 0
 
     &.is-active
       .tab-link
@@ -31,9 +37,13 @@
       transition: background 220ms $fading, color 180ms $bounce
       width: 110px
 
-    &.tab-draw
-      border-right: 0
+      +below(480px)
+        padding: 10px 10px 0
+        width: 60px
+        overflow: hidden
+        height: 40px
 
+    &.tab-draw
       &.is-active a::after
         background-image: url("/images/icon-draw-active.png")
 
@@ -42,6 +52,10 @@
         color: #3b51c1
         padding-left: 30px
         padding-right: 10px
+        border-right: 0
+
+        +below(480px)
+          padding: 10px 10px 0
 
         &::after
           content: ""
@@ -54,3 +68,5 @@
           width: 15px
           height: 15px
 
+          +below(480px)
+            display: none
