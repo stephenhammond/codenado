@@ -3,20 +3,19 @@ Template.editor.onCreated(function(){
 });
 
 Template.editor.onRendered( function() {
-  // var pathname = Session.get('lobbyId');
-  // var docId = pathname + '-tab1';
   Session.set('isViewingBoard', false);
-  Session.set('activeTab', 1);
+  Session.set('activeTab', 0);
+  Deps.autorun(function() {
+    var docId = Session.get('lobbyId') +'-'+ Session.get('activeTab');
+    var editor = EditorConfig.findOne({docId: docId});
+    var syntaxSelected = 'javascript'
+    if (editor) {
+      syntaxSelected = editor.active_syntax
+    }
+    $('.editor-syntax').val(syntaxSelected);
+  });
+  setTimeout(clickTab, 1500);
 });
-
-// Template.editor.helpers({
-//   currentTab: function () {
-//     return Session.get("currentTab");
-//   },
-//   isViewingBoard: function() {
-//     return Session.get("isViewingBoard");
-//   }
-// });
 
 Template.editor.events({
   'change .editor-syntax': function(e, tpl){
@@ -35,7 +34,6 @@ Template.editor.events({
       });
     }
     return false;
-
   }
 });
 
@@ -62,3 +60,7 @@ Template.editor.helpers({
     return Session.get("isViewingBoard");
   }
 });
+
+function clickTab() {
+  $("#tab-link1").click()
+}
