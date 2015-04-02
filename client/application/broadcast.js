@@ -6,13 +6,10 @@ Template.broadcast.onRendered( function(){
 	var exitConf = document.querySelector('#exitConf');
 
 	launchConf.onclick = function() {
-		console.log("----launchConf button clicked");
 	  // this.disabled = true;
 	  var role = selectRole.value;
 	  console.log(role);
-	  console.log('-----------after Role, before window.connection---');
 	  window.connection = new RTCMultiConnection();
-	  console.log('-------------after window.connection--------')
 
 	  // dont-override-session allows you force RTCMultiConnection
 	  // to not override default session of participants;
@@ -55,7 +52,6 @@ Template.broadcast.onRendered( function(){
 	  connection.transmitRoomOnce = true;
 
 	  connection.onNewSession = function(session) {
-	  		console.log("----onNewSession Triggered");
 	      if (role == 'Viewer') {
 	          session.join({
 	              oneway: true
@@ -74,11 +70,9 @@ Template.broadcast.onRendered( function(){
 	      });
 	  else
 	      connection.connect(connection.channel);
-	    	console.log("----connection.connect called!");
 	};
 
 		exitConf.onclick = function() {
-		console.log("--------exitConf button clicked");
 		connection.close();
 		}
 })
