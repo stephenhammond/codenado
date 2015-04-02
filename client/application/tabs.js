@@ -12,3 +12,25 @@ Template.tabs.events({
     return false;
   }
 });
+
+Template.tabs.helpers({
+  currentSyntax: function(tabNumber){
+
+    var docId = Session.get('lobbyId') +'-'+tabNumber;
+    var editor = EditorConfig.findOne({docId: docId});
+
+    if (editor) {
+      editor = editor.active_syntax
+    } else {
+      editor = "javascript";
+    }
+
+    if (editor === 'html') { editor = 'HTML' }
+
+    if (editor === 'css') { editor = 'CSS' }
+
+    return editor
+
+  }
+
+});

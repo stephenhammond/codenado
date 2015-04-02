@@ -6,7 +6,7 @@ Template.editor.onRendered( function() {
   Session.set('isViewingBoard', false);
   Session.set('activeTab', 0);
 
-  setTimeout(clickTab, 1500);
+  setTimeout(clickTab, 1000);
 });
 
 Template.editor.events({
@@ -54,5 +54,5 @@ Template.editor.helpers({
 });
 
 function clickTab() {
-  $("#tab-link1").click()
+  $("#tab-link1").click();
 }
