@@ -13,55 +13,7 @@ header.app-header
         margin-left: 0
 
       &:last-of-type
-        margin-right: 0
-
-  .navbar-item
-    padding: $padding-default
-    display: block
-    color: white
-
-  .navbar-left
-    float: left
-
-  .navbar-right
-    float: right
-
-  .current-user-avatar
-    border-radius: 100%
-    float: right
-    height: 35px
-    position: relative
-    z-index: 2
-
-    nav
-      +container
-      background: #1f2427
-
-      ul
-        &:first-of-type
-          margin-left: 0
-
-        &:last-of-type
-          margin-right: 0
-
-  .navbar-item
-    padding: $padding-default
-    display: block
-    color: white
-
-  .navbar-left
-    float: left
-
-  .navbar-right
-    float: right
-
-  .current-user-avatar
-    border-radius: 100%
-    float: right
-    height: 35px
-    position: relative
-    top: -6px
-    width: 35px
+        margin-right: 20px
 
   .logo
     position: relative
@@ -78,7 +30,60 @@ header.app-header
       background-size: 100% auto
       background-repeat: no-repeat
       width: 20px
-      height: 24px
+      height: 25px
       position: absolute
       top: -3px
       left: 0
+
+  .navbar-item
+    padding: 20px 15px 0
+    display: block
+    color: white
+
+  .navbar-left
+    float: left
+
+  .navbar-right
+    float: right
+    width: 350px
+    padding: 0
+    margin: 0
+    height: 63px
+    position: relative
+
+    .navbar-item
+      padding: 0
+
+  .current-user-avatar
+    border-radius: 100%
+    float: right
+    height: 35px
+    position: relative
+    top: -6px
+    width: 35px
+
+    position: absolute
+    right: 68px
+    top: 10px
+
+  .login-buttons-dropdown-align-right
+    padding: 10px 20px
+    cursor: pointer
+
+  #login-buttons
+    position: relative
+
+  #login-buttons-logout
+    position: absolute
+    right: 0
+    top: 18px
+    font-size: .95em
+
+  .login-display-name
+    display: inline-block
+    padding-top: 8px
+    text-align: right
+    position: absolute
+    right: 112px
+
+  .login-buttons-with-only-one-button
