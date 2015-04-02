@@ -40,6 +40,9 @@ header.app-header
     display: block
     color: white
 
+    +below(480px)
+      padding: 10px
+
   .navbar-left
     float: left
 
@@ -50,6 +53,9 @@ header.app-header
     margin: 0
     height: 63px
     position: relative
+
+    +below(480px)
+      display: none
 
     .navbar-item
       padding: 0

@@ -133,7 +133,6 @@ $users-height: 60px
       width: 24px
       height: 25px
       margin-left: -12px
-      display: block
       position: absolute
       left: 50%
       top: 8px
@@ -150,9 +149,9 @@ $users-height: 60px
         top: 30px
         text-align: left
 
-        &:after
-          background: white
+        &::after
           content: ""
+          background: white
           width: 48px
           height: 5px
           position: absolute
@@ -168,7 +167,7 @@ $users-height: 60px
       &:last-child
         padding-bottom: 15px
 
-      &:after
+      &::after
         content: ""
         background-image: url("/images/icon-user.png")
         background-size: 100% auto
@@ -176,14 +175,9 @@ $users-height: 60px
         width: 24px
         height: 25px
         margin-left: -12px
-        display: block
         position: absolute
         left: 25px
         top: 13px
-        transition: background-color 125ms ease-in-out
-
-      &:hover
-        background: #e4ebf5
 
     .viewer-name
       font-weight: $font-weight-bold
@@ -203,4 +197,3 @@ $users-height: 60px
         color: white
         background: $blue
         cursor: pointer
-
