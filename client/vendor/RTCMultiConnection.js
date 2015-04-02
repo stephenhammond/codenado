@@ -4183,22 +4183,22 @@ connection.rtcConfiguration
     };
 
     function log() {
-        console.log(arguments);
+        // console.log(arguments);
     }
 
     function error() {
-        console.error(arguments);
+        // console.error(arguments);
     }
 
     function warn() {
-        console.warn(arguments);
+        // console.warn(arguments);
     }
 
-    if (isChrome || isFirefox || isSafari) {
-        var log = console.log.bind(console);
-        var error = console.error.bind(console);
-        var warn = console.warn.bind(console);
-    }
+    // if (isChrome || isFirefox || isSafari) {
+    //     var log = console.log.bind(console);
+    //     var error = console.error.bind(console);
+    //     var warn = console.warn.bind(console);
+    // }
 
     function toStr(obj) {
         return JSON.stringify(obj, function(key, value) {
