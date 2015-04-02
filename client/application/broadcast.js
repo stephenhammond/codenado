@@ -1,11 +1,12 @@
 Template.broadcast.events({
 
-  'click li .dropdown-top-item': function (e) {
+  'click .broadcast-list .dropdown-top-item': function (e) {
     e.preventDefault();
+    console.log('s');
     $(e.target).parents('.dropdown-select-list').addClass('dropdown-is-open');
   },
 
-  'blur .dropdown-top-item': function(){
+  'blur .broadcast-list .dropdown-select-list': function(){
     $('.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
   }
 });
@@ -24,9 +25,6 @@ Deps.autorun(function(){
     }
   });
 });
-
-
-
 
 Template.broadcast.onRendered( function(){
 

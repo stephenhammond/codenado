@@ -8,21 +8,23 @@
     </select> -->
 
     <form>
-      <ul class="dropdown-select-list">
+      <ul class="broadcast-list dropdown-select-list">
         <li>
           <a href="#" class="dropdown-top-item">Launch Video Conference</a>
           <ul class="dropdown-menu">
             {{#if userIsPresenter}}
-              <li><a href="#" class="video-presenter">Presenter</a></li>
-              <li><a href="#" class="video-co-presenter">Co-Presenter</a></li>
+              <li><a href="#" class="video-presenter">Launch Conference</a></li>
+              <li><a href="#" class="video-co-presenter">Join Conference</a></li>
             {{/if}}
-            {{#if userIsViewer}}
-              <li><a href="#" class="Anonymous Viewer">Viewer</a></li>
-            {{/if}}
+            {{#unless userIsPresenter}}
+              <li><a href="#" class="Anonymous Viewer">Watch Conference</a></li>
+            {{/unless}}
           </ul>
         </li>
       </ul>
     </form>
+
+    <button id="launchConf">Launch Conference</button> <br />
 
   </div>
 </template>
