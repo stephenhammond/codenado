@@ -7,6 +7,12 @@ Template.controls.events({
 
   'blur .dropdown-top-item': function(){
     $('.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
+  },
+
+  'submit .viewer-name': function (e) {
+    e.preventDefault();
+    var newName = e.target.text.value;
+    Session.set('chatName', newName);
   }
 
 });
@@ -25,3 +31,23 @@ Deps.autorun(function(){
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
