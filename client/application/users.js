@@ -5,7 +5,7 @@ Template.users.events({
     $(e.target).closest('.viewers.dropdown-select-list').addClass('dropdown-is-open');
   },
 
-  'mousedown .dropdown-menu button': function(){
+  'mousedown .users-list .dropdown-menu button': function(){
     if (this.role == "viewer") {
       Meteor.users.update(
         { _id: this.id }, {
