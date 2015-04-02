@@ -21,13 +21,15 @@
        -->
 
         <div class="is-viewer">
-          {{#if userIsViewer}}
-            <form>
-              <input class="viewer-name" type="text" placeholder="What's Your Name?">
-              <!-- <input class="viewer-email" type="text" placeholder="What's Your Email?">
-              <span class="input-note">Export code to email</span> -->
+          {{#unless userIsPresenter}}
+            <form class="viewer-name">
+              <input type="text" class="viewer-name-input" name="text" placeholder="Enter Your Name">
             </form>
-          {{/if}}
+          {{/unless}}
+            <!-- <form>
+              <input class="viewer-email" type="text" placeholder="What's Your Email?">
+              <span class="input-note">Export code to email</span>
+            </form> -->
         </div>
 
  <!--      <div class="shared-controls">
