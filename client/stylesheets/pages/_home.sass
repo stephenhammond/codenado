@@ -34,6 +34,9 @@
     z-index: 2
     overflow: hidden
 
+    +below(480px)
+      padding-top: 75px
+
     h1
       font-size: 4em
       line-height: 1.5em
@@ -41,8 +44,16 @@
       letter-spacing: .02em
       +animation(slideInDown 800ms $bounce)
 
+      +below(480px)
+        font-size: 2em
+
     ul
       margin: 2em 0
+
+      +below(480px)
+        margin-left: auto
+        margin-right: auto
+        width: 50%
 
     li
       display: inline-block
@@ -52,6 +63,11 @@
       margin: 0 50px 0 0
       padding-left: 40px
       +animation(fadeIn 1.75s $fading forwards)
+
+      +below(480px)
+        display: block
+        margin-bottom: 30px
+        text-align: left
 
       &:nth-of-type(2)
         animation-duration: 1.85s
@@ -113,6 +129,9 @@
     position: relative
     z-index: 5
     +animation(slideInUp 1.05s $fading forwards)
+
+    +below(480px)
+      max-width: 100%
 
 %after-icons
   content: ""
