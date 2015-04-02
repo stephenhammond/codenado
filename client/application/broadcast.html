@@ -1,13 +1,28 @@
 <template name="broadcast">
   <div class="video-controls">
 
-    <select id="selectRole">
+<!--     <select id="selectRole">
       <option>Presenter</option>
       <option>Co-Presenter</option>
       <option>Anonymous Viewer</option>
-    </select>
+    </select> -->
 
-    <button id="launchConf">Launch Conference</button> <br />
+    <form>
+      <ul class="dropdown-select-list">
+        <li>
+          <a href="#" class="dropdown-top-item">Launch Video Conference</a>
+          <ul class="dropdown-menu">
+            {{#if userIsPresenter}}
+              <li><a href="#" class="video-presenter">Presenter</a></li>
+              <li><a href="#" class="video-co-presenter">Co-Presenter</a></li>
+            {{/if}}
+            {{#if userIsViewer}}
+              <li><a href="#" class="Anonymous Viewer">Viewer</a></li>
+            {{/if}}
+          </ul>
+        </li>
+      </ul>
+    </form>
 
   </div>
 </template>

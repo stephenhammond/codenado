@@ -1,3 +1,33 @@
+Template.broadcast.events({
+
+  'click li .dropdown-top-item': function (e) {
+    e.preventDefault();
+    $(e.target).parents('.dropdown-select-list').addClass('dropdown-is-open');
+  },
+
+  'blur .dropdown-top-item': function(){
+    $('.dropdown-select-list.dropdown-is-open').removeClass('dropdown-is-open');
+  }
+});
+
+Deps.autorun(function(){
+  Template.broadcast.helpers({
+    userIsPresenter: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "presenter";
+      }
+    },
+    userIsViewer: function () {
+      if (Meteor.user()) {
+        return Meteor.user().roles === "viewer";
+      }
+    }
+  });
+});
+
+
+
+
 Template.broadcast.onRendered( function(){
 
 	var selectRole = document.querySelector('#selectRole');
