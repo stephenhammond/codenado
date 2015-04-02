@@ -29,7 +29,6 @@ Template.app.events({
 });
 
 function resizeApp(){
-  console.log('resized');
   var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   var headerHeight = $(".app-header").height();
 
