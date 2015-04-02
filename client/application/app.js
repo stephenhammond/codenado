@@ -32,12 +32,13 @@ function resizeApp(){
   var viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   var headerHeight = $(".app-header").height();
 
-  var appPort = (viewportHeight - headerHeight);
-  $(".app-primary, .app-sidebar").css("height", appPort  + "px");
+  var appHeight = (viewportHeight - headerHeight);
+  $(".app-primary, .app-sidebar").css("height", appHeight  + "px");
 
   var tabHeight = $('.tabs-container').height();
-  var editorPort = tabHeight - appPort;
-  $('#editor').css("height", editorPort  + "px");
+  var editorHeight = tabHeight - appHeight;
+
+  $('#editor').css("height", editorHeight  + "px");
 
 }
 
