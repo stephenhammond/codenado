@@ -1,4 +1,5 @@
 Template.broadcast.onRendered( function(){
+	console.log("---PAGE RENDERED");
 
 	var selectRole = document.querySelector('#selectRole');
 	var launchConf = document.querySelector('#launchConf');
@@ -66,6 +67,7 @@ Template.broadcast.onRendered( function(){
 
 	exitConf.onclick = function() {
 		connection.leave();
+		return role = "resetted";
 	}
 
 })
