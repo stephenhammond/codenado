@@ -5,6 +5,7 @@ $users-height: 60px
   width: 96%
   margin-left: 3%
   margin-right: 3%
+  margin-top: .5em
 
   .users-list
     +clearfix
@@ -20,9 +21,37 @@ $users-height: 60px
     position: relative
     height: $users-height
 
-    +below(780px)
-      width: 100%
-      height: 40px
+    &[data-presenter-count="2"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 40px
+        z-index: 9
+
+    &[data-presenter-count="3"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 30px
+        z-index: 9
+
+      .presenter:nth-of-type(3)
+        left: 60px
+        z-index: 8
+
+    &[data-presenter-count="4"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 30px
+        z-index: 9
+
+      .presenter:nth-of-type(3)
+        left: 60px
+
+      .presenter:nth-of-type(4)
+        left: 75px
+        z-index: 7
 
   .presenter
     +clearfix
@@ -123,10 +152,10 @@ $users-height: 60px
         &:after
           background: white
           content: ""
-          width: 51px
+          width: 48px
           height: 5px
           position: absolute
-          right: -7px
+          right: 10px
           top: -3px
 
     .viewer
