@@ -26,3 +26,6 @@ Meteor.publish("chat", function(){
   return chatCollection.find();
 });
 
+Meteor.publish("editor", function(){
+  return EditorConfig.find();
+});

@@ -9,9 +9,9 @@ Template.tabs.events({
       return false;
     }
     var pathname = Session.get('lobbyId');
-    var docid = pathname + '-tab' + tabId;
+    // var docid = pathname + '-' + tabId;
     Session.set('isViewingBoard', false);
-    Session.set('currentTab', docid);
+    Session.set('activeTab', tabId);
     return false;
   }
 

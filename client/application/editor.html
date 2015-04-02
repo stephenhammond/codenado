@@ -1,9 +1,15 @@
 <template name="editor">
+  <select class="editor-syntax">
+    <option value="javascript" selected="selected">JavaScript</option>
+    <option value="ruby">Ruby</option>
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+  </select>
 
   {{#if isViewingBoard}}
    {{> blackboard}}
   {{else}}
-   {{> sharejsAce docid=currentTab id="editor"}}
+   {{> sharejsAce docid=currentDocId onRender=currentTabConfig id="editor"}}
   {{/if}}
 
 </template>
