@@ -12,29 +12,28 @@
           </div>
         {{/each}}
       </li>
-
       <li class="viewers dropdown-select-list">
         <a href="#" class="dropdown-top-item viewers-dropdown">
           <b class="viewers-number">{{usersOnlineCount}}</b>
-
-            <ul class="dropdown-menu">
-              {{#each allUsers}}
-                <li class="viewer">
-                  <b class="viewer-name">{{name}}</b>
-                  {{#if userIsPresenter}}
-                    {{#if roleIs 'viewer'}}
-                      <button class="viewer-promote">Promote</button>
-                    {{/if}}
-                    {{#unless onePresenter}}
-                      {{#if roleIs 'presenter'}}
-                        <button class="viewer-promote">Demote</button>
+            {{#unless noUsers}}
+              <ul class="dropdown-menu">
+                {{#each allUsers}}
+                  <li class="viewer">
+                    <b class="viewer-name">{{name}}</b>
+                    {{#if userIsPresenter}}
+                      {{#if roleIs 'viewer'}}
+                        <button class="viewer-promote">Promote</button>
                       {{/if}}
-                    {{/unless}}
-                   {{/if}} 
-                </li>
-              {{/each}}
-            </ul>
-
+                      {{#unless onePresenter}}
+                        {{#if roleIs 'presenter'}}
+                          <button class="viewer-promote">Demote</button>
+                        {{/if}}
+                      {{/unless}}
+                     {{/if}} 
+                  </li>
+                {{/each}}
+              </ul>
+            {{/unless}}
         </a>
       </li>
 
