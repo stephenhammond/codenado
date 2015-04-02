@@ -5,11 +5,21 @@ Template.broadcast.onRendered( function(){
 	var launchConf = document.querySelector('#launchConf');
 	var videos = document.querySelector('#videos');
 	var exitConf = document.querySelector('#exitConf');
+	// function resetRole(currentRole){
+	// 	if (currentRole == 'Viewer' || currentRole == 'Co-Presenter') {
+	// 	currentRole = "reset";
+	// 	}
+	// };
+
 
 	launchConf.onclick = function() {
+		console.log("----launchConf button clicked");
 	  // this.disabled = true;
 	  var role = selectRole.value;
+	  console.log(role);
+	  console.log('-----------after Role, before window.connection---');
 	  window.connection = new RTCMultiConnection();
+	  console.log('-------------after window.connection--------')
 
 	  // dont-override-session allows you force RTCMultiConnection
 	  // to not override default session of participants;
@@ -19,10 +29,16 @@ Template.broadcast.onRendered( function(){
 	  connection.session = {
 	      audio: true,
 	      video: true,
-	      oneway: role == 'Anonymous Viewer'
+	      oneway: role == 'Viewer'
+	  };
+
+	  connection.privileges = {
+	  	canStopRemoteStream: true,
+    	canMuteRemoteStream: true
 	  };
 
 	  connection.onstream = function(e) {
+	  		console.log("----onStream triggered");
 	      videos.appendChild(e.mediaElement);
 
 	      if (e.type == 'remote') {
@@ -43,9 +59,11 @@ Template.broadcast.onRendered( function(){
 	          });
 	      }
 	  };
+	  connection.transmitRoomOnce = true;
 
 	  connection.onNewSession = function(session) {
-	      if (role == 'Anonymous Viewer') {
+	  		console.log("----onNewSession Triggered");
+	      if (role == 'Viewer') {
 	          session.join({
 	              oneway: true
 	          });
@@ -53,6 +71,9 @@ Template.broadcast.onRendered( function(){
 
 	      if (role == 'Co-Presenter') {
 	          session.join();
+	      }
+	      else {
+	      	session.leave();
 	      }
 	  };
 
@@ -63,11 +84,16 @@ Template.broadcast.onRendered( function(){
 	      });
 	  else
 	      connection.connect(connection.channel);
+	    	console.log("----connection.connect called!");
+
+	 exitConf.onclick = function() {
+		console.log("--------exitConf button clicked");
+		console.log(role);
+		connection.close();
+		}
+
 	};
 
-	exitConf.onclick = function() {
-		connection.leave();
-		return role = "resetted";
-	}
+
 
 })
