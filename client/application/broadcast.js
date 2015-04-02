@@ -3,9 +3,10 @@ Template.broadcast.onRendered( function(){
 	var selectRole = document.querySelector('#selectRole');
 	var launchConf = document.querySelector('#launchConf');
 	var videos = document.querySelector('#videos');
+	var exitConf = document.querySelector('#exitConf');
 
 	launchConf.onclick = function() {
-	  this.disabled = true;
+	  // this.disabled = true;
 	  var role = selectRole.value;
 	  window.connection = new RTCMultiConnection();
 
@@ -62,4 +63,9 @@ Template.broadcast.onRendered( function(){
 	  else
 	      connection.connect(connection.channel);
 	};
+
+	exitConf.onclick = function() {
+		connection.leave();
+	}
+
 })
