@@ -15,10 +15,10 @@ mizzao:sharejs
 insecure
 msavin:mongol
 preserve-inputs
-accounts-ui
 accounts-github
 service-configuration
 msavin:jetsetter
 mizzao:user-status
 alanning:roles
 manuelschoebel:wait-on-lib
+accounts-ui-unstyled

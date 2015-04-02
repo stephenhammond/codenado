@@ -1,6 +1,60 @@
+// APP 2 COLUMN LAYOUT
+$app-column-height-default: 660px
+
+.app-container
+  position: relative
+  align-content: stretch
+  align-items: stretch
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  overflow: hidden
+
+  -webkit-box-direction: normal
+  -moz-box-direction: normal
+  -webkit-box-orient: horizontal
+  -moz-box-orient: horizontal
+  -webkit-box-pack: justify
+  -moz-box-pack: justify
+  -ms-flex-pack: justify
+  -ms-flex-line-pack: stretch
+  -webkit-box-align: stretch
+  -moz-box-align: stretch
+  -webkit-align-items: stretch
+  -ms-flex-align: stretch
+
+main.app-primary
+  -webkit-box-ordinal-group: 2
+  -moz-box-ordinal-group: 2
+  -webkit-align-self: auto
+  -ms-flex-item-align: auto
+  order: 1
+  flex: 0 80 80%
+  align-self: auto
+  position: relative
+  background-color: #262722
+
+  +below(480px)
+    display: block
+    width: 100%
+    flex: 0 0 auto
+
+aside.app-sidebar
+  -webkit-box-ordinal-group: 3
+  -moz-box-ordinal-group: 3
+  -ms-flex-item-align: auto
+  order: 2
+  flex: 0 20 20%
+  align-self: auto
+  min-width: 225px
+
+  +below(480px)
+    display: none
+
+
 // APP STYLES
 .app-container
-  +container
   z-index: 1
 
   ul
@@ -17,34 +71,7 @@ p.app-label
   margin-bottom: .05em
   color: rgba(#333, .6)
 
-// APP 2 PAGE LAYOUT
-$app-column-height-default: 660px
-
-main.app-primary
-  +container
-  float: left
-  height: $app-column-height-default
-  width: 73%
-
-  +above(1050px)
-    width: 80%
-
-  +below(780px)
-    width: 80%
-
-aside.app-sidebar
-  +container
-  float: left
-  height: $app-column-height-default
-  width: 27%
-
-  +above(1050px)
-    width: 20%
-
-  +below(780px)
-    width: 20%
-
-// IMPORT OTHER PARTIALS
+// IMPORT PARTIALS
 @import app-header
 @import app-tabs
 @import app-editors
@@ -53,6 +80,3 @@ aside.app-sidebar
 @import app-users
 @import app-controls
 @import app-broadcast
-
-// @import app-buttons
-// @import app-audio-chat

@@ -5,6 +5,7 @@ $users-height: 60px
   width: 96%
   margin-left: 3%
   margin-right: 3%
+  margin-top: .5em
 
   .users-list
     +clearfix
@@ -20,9 +21,37 @@ $users-height: 60px
     position: relative
     height: $users-height
 
-    +below(780px)
-      width: 100%
-      height: 40px
+    &[data-presenter-count="2"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 40px
+        z-index: 9
+
+    &[data-presenter-count="3"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 30px
+        z-index: 9
+
+      .presenter:nth-of-type(3)
+        left: 60px
+        z-index: 8
+
+    &[data-presenter-count="4"]
+      position: relative
+
+      .presenter:nth-of-type(2)
+        left: 30px
+        z-index: 9
+
+      .presenter:nth-of-type(3)
+        left: 60px
+
+      .presenter:nth-of-type(4)
+        left: 75px
+        z-index: 7
 
   .presenter
     +clearfix
@@ -100,10 +129,10 @@ $users-height: 60px
       content: ""
       background-image: url("/images/icon-user.png")
       background-size: 100% auto
+      background-repeat: no-repeat
       width: 24px
-      height: 24px
+      height: 25px
       margin-left: -12px
-      display: block
       position: absolute
       left: 50%
       top: 8px
@@ -120,13 +149,13 @@ $users-height: 60px
         top: 30px
         text-align: left
 
-        &:after
-          background: white
+        &::after
           content: ""
-          width: 51px
+          background: white
+          width: 48px
           height: 5px
           position: absolute
-          right: -7px
+          right: 10px
           top: -3px
 
     .viewer
@@ -138,21 +167,17 @@ $users-height: 60px
       &:last-child
         padding-bottom: 15px
 
-      &:after
+      &::after
         content: ""
         background-image: url("/images/icon-user.png")
         background-size: 100% auto
+        background-repeat: no-repeat
         width: 24px
         height: 25px
         margin-left: -12px
-        display: block
         position: absolute
         left: 25px
         top: 13px
-        transition: background-color 125ms ease-in-out
-
-      &:hover
-        background: #e4ebf5
 
     .viewer-name
       font-weight: $font-weight-bold
@@ -172,53 +197,3 @@ $users-height: 60px
         color: white
         background: $blue
         cursor: pointer
-
-// MIGHT USE
-    // &:nth-of-type(1)
-    //   background: grey
-
-    // &:nth-of-type(2)
-    //   left: 30px
-    //   z-index: 9
-
-    // &:nth-of-type(3)
-    //   left: 60px
-    //   z-index: 8
-    //   background: cyan
-
-    // &:nth-of-type(4)
-    //   left: 90px
-    //   z-index: 7
-    //   background: aliceblue
-
-    // &:nth-of-type(5)
-    //   left: 120px
-    //   z-index: 6
-    //   background: lime
-
-    // &:nth-of-type(6)
-    //   left: 150px
-    //   z-index: 5
-    //   background: brown
-
-    // +below(780px)
-    //   &:nth-of-type(2)
-    //     left: 20px
-
-    //   &:nth-of-type(3)
-    //     left: 43px
-
-    //   &:nth-of-type(4)
-    //     left: 68px
-
-    //   &:nth-of-type(5)
-    //     left: 92px
-
-    //   &:nth-of-type(6)
-    //     left: 108px
-
-    // $fonts: (300, sw23244sad), (400, asdsgsa30482_sds), (600, dsa244asds_23)
-    // @each $weight, $font in $fonts
-    // @each $item in $fonts
-    //   $weight: nth($item, 1)
-    //   $font: nth($item, 2)

@@ -6,14 +6,17 @@
 
 <template name="app">
 
-  <div class="app-container">
+  <header class="app-header" role="menubar">
+    {{> appHeader }}
+  </header>
 
-    <header class="app-header" role="menubar">
-      {{> appHeader }}
-    </header>
+  <div class="app-container">
 
     <main class="app-primary" role="nagivation">
       {{> tabs}}
+
+      {{> video }}
+
     </main>
 
     <aside class="app-sidebar is-viewer is-presenter">
