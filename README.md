@@ -56,7 +56,7 @@ Online code collaboration tool
 
 #### Ready to create pull request?
 
-Great, you've been working and now are ready to create a pull request and get your code on Master. But wait! All while you've been working, your team has also been merging and committing. To ensure that your feature branch (which could be very old) is update to date with latest we need to resync master. Why? This way, your code changes your going to purpose are going to the latest code changes. It's a simple process!
+Great, you've been working and now are ready to create a pull request and get your code on Master. But wait! All while you've been working, your team has also been merging and committing on master. To ensure that your feature branch (which could be very old) is update to date with latest we need to resync master. Why? This way, your code changes are going to be moved to the top, as the  latest or HEAD. It's a simple process, that might require fixing conflicts (don't panic) depending on the changes.  
 
 1. Ensure your feature branch is clean with no file changes.
 
@@ -83,8 +83,9 @@ Great, you've been working and now are ready to create a pull request and get yo
 
   `$ git rebase master`
 
-  You may run into **merge conflicts**! That's okay, resolve each of the conflicts, add them back, then continue the rebase.
+  You may run into **merge conflicts**! That's okay, resolve each of the conflicts, add them back, then continue the rebase. If you don't, and merge anyways, you'll break master. If there are automated tools testing for "mergeability", you'll break it. 
 
-4. Resolve conflicts in all your files
-5. `$ git add <fixed-files-that-had-conflicts>`
-6. `$ git rebase --continue` to keep continue along with the rebase.
+4. Use `git status` to check for conflicted files
+5. Resolve conflicts in all your files
+6. `$ git add <fixed-files-that-had-conflicts>`
+7. `$ git rebase --continue` to continue along with the rebase process of replaying commits on top of your code.
